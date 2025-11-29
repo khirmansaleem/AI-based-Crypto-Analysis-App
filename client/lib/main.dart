@@ -7,11 +7,8 @@ import 'package:news_analysis_app/ui/screens/get_started.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-
-const supabaseUrl = 'https://mbspzytcxyvxkptfnouz.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ic3B6eXRjeHl2eGtwdGZub3V6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMyNTQwOTgsImV4cCI6MjA2ODgzMDA5OH0.ov05V2kYiVoWHsd7_7yYjHFkVhWKwEJKLMsBVC2w5BI'; // full anon key here
-
-
+const supabaseUrl = '';
+const supabaseKey = '';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -50,23 +47,27 @@ class MyApp extends StatelessWidget {
       brightness: Brightness.dark,
       scaffoldBackgroundColor: const Color(0xFF0E0E0E),
       colorScheme: const ColorScheme.dark(
-        primary: Color(0xFFB2FF59),      // LightGreenAccent[400]
-        secondary: Color(0xFF33691E),    // Deep green
+        primary: Color(0xFFB2FF59), // LightGreenAccent[400]
+        secondary: Color(0xFF33691E), // Deep green
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xFF2E2E2E),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
-      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme).copyWith(
+      textTheme:
+          GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme).copyWith(
         bodyMedium: const TextStyle(color: Colors.white70),
-        titleMedium: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-        headlineSmall: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        titleMedium:
+            const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+        headlineSmall:
+            const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: Colors.grey[900],
-        contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
         hintStyle: TextStyle(color: Colors.grey[500]),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -86,7 +87,8 @@ class MyApp extends StatelessWidget {
           backgroundColor: const Color(0xFFB2FF59),
           foregroundColor: Colors.black,
           padding: const EdgeInsets.symmetric(vertical: 16),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
@@ -100,7 +102,8 @@ class MyApp extends StatelessWidget {
         backgroundColor: Color(0xFF1C1C1E),
         indicatorColor: Color(0xFFB2FF59),
         iconTheme: WidgetStatePropertyAll(IconThemeData(color: Colors.white70)),
-        labelTextStyle: WidgetStatePropertyAll(TextStyle(color: Colors.white70)),
+        labelTextStyle:
+            WidgetStatePropertyAll(TextStyle(color: Colors.white70)),
       ),
     );
 
@@ -113,5 +116,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
