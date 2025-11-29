@@ -1,0 +1,42 @@
+Category: regulation
+Title: Adding DeFi to your 401k: How BlackRock’s staked Ethereum ETF rewires access to ETH rewardsCrypto·6 days ago
+URL: https://cryptoslate.com/adding-defi-to-your-401k-how-blackrocks-staked-ethereum-etf-rewires-access-to-eth-yield/
+
+================================================================================
+
+A filing would kick off a new front in the ETH ETF war: pricing, staking access, and custody all in play.
+Cover art/illustration via CryptoSlate. Image includes combined content which may include AI-generated content.
+BlackRock registered the iShares Staked Ethereum Trust in Delaware on Nov. 19, opening a path toward the firm’s first staked Ethereum ETF in the US.
+The state-level trust registration does not constitute a formal Securities Act of 1933 application. Still, it positions BlackRock to launch a yield-bearing ETH product once the SEC permits staking inside ETF wrappers.
+The filing follows a separateNasdaqproposalearlier this yearthat would retrofit BlackRock’s existing iShares Ethereum Trust ETF to stake a portion of its ETH throughCoinbaseCustody if regulators approve.
+BlackRocknow pursues two parallel tracks: adding staking to its live spot ETH ETF and creating a dedicated stakedEthereumtrust from scratch.
+The first wave of US spot Ethereum ETFs launched in 2024 without staking after the SEC required issuers to remove the feature.
+Those funds charge management fees of 0.15% to 0.25%,VanEck’sEthereum ETF charges 0.20%, whileFidelity’sETF and iSharesETHAboth charge 0.25%. They hold ETH in institutional custody and track the price with no on-chain staking yield passed through to investors.
+On-chain, roughly 30% of Ethereum’s circulating supply is staked, and network-level rewards have run just under 3% annualized in recent weeks, per reference indices such as Compass’s STYETH and MarketVector’s STKR.
+Investors who buy a spot ETH ETF today forfeit that 3% yield if the token trades flat.
+BlackRock enters a market where three distinct staking structures have emerged. The REX-Osprey ETH + Staking ETF trades under the ticker ESK as an actively managed 1940 Act fund that stakes at least 50% of its holdings, charging an all-in fee of 1.28%.
+VanEck filed a Lido Staked Ethereum ETF structured as a grantor trust that holdsstETHrather than native ETH.
+Grayscaledisclosed that its flagship Ethereum Trust can retain up to 23% of staking rewards as additional compensation, while the Ethereum Mini Trust ETF can retain up to 6% of staking rewards.
+BlackRock’s existing 0.25% fee on ETHA provides a baseline. A dedicated staked ETH trust gives BlackRock three options: keep the 0.25% sponsor fee and pass nearly all staking yield through to investors, add an explicit cut of staking rewards as a second fee layer, or deploy temporary fee waivers to capture market share before normalizing rates.
+A staked ETH ETF solves a distribution problem for institutions, advisers, and retirement platforms that cannot access DeFi protocols or lack the operational infrastructure to self-stake.
+A spot ETF that performs native staking converts on-chain yield into a total-return line item compatible with 401(k) accounts and model portfolios.
+Investors who buy a staked ETF may capture roughly 2% to 3% annually after fees, even if the token price remains flat.
+BlackRock appears set to use Coinbase Custody for both ether storage and staking, concentrating all operations inside a single US-regulated counterparty.
+The Nasdaq filing identifies Coinbase as both custodian and staking provider. REX-Osprey uses US Bank with external validators, while VanEck’s Lido fund depends on Lido’s smart contracts and a separate stETH custodian.
+Regulators may favor BlackRock’s single-counterparty model over structures that route staking through DeFi protocols.
+The SEC forced issuers to strip staking from the first ETH ETFs because specific staking programs might constitute unregistered securities offerings.
+BlackRock’s Delaware trust positions the firm at the front of the queue for when that stance softens, but it has no effective registration statement or approved exchange rule.
+Regulators face three open questions. The first is whether they will permit native staking in a 1933 Act commodity trust or require it to be placed in 1940 Act structures.
+The second is whether they will treat liquid staking tokens like stETH as equivalent to holding underlying ETH. The third is how much fee extraction from staking they will tolerate before a product crosses into actively managed yield strategy territory.
+BlackRock’s filing opens three competitive fronts. On pricing, the firm’s scale will compress margins, but the real contest centers on what percentage of staking rewards sponsors retain.
+On access, a staked ETH ETF brings validator-level yields inside brokerage accounts that will never touch DeFi.
+On custody, every staked ETF proposal concentrates staking into a handful of custodians. As more ETH migrates into ETF shells, more of the network’s staking power will be held by institutional keys.
+Gino Matos is a law school graduate and a seasoned journalist with six years of experience in the crypto industry. His expertise primarily focuses on the Brazilian blockchain ecosystem and developments in decentralized finance (DeFi).
+Also known as "Akiba," Liam Wright is the Editor-in-Chief at CryptoSlate and host of the SlateCast. He believes that decentralized technology has the potential to make widespread positive change.
+
+Essential crypto updates and analyses. Straight to your inbox, every day.
+Ethereum updates, Layer-2 growth, DeFi ecosystem insights, and technical innovation across the network.
+SEC and CFTC actions, state policy, ETFs, startups, and nationwide crypto market trends.
+Comprehensive crypto news, insights, and data to stay ahead in the digital asset economy.
+Stay updated with the latest announcements from leading projects and companies.
+Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.

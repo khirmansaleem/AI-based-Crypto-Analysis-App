@@ -1,0 +1,56 @@
+Category: exchanges
+Title: Huge $100 billion crypto listing stampede started by Kraken’s stealth IPO filingTradFi·1 week ago
+URL: https://cryptoslate.com/a-100-billion-crypto-listing-stampede-started-by-krakens-stealth-ipo-filing/
+
+================================================================================
+
+The resurgence of crypto IPOs, led by Kraken, reflects a $100 billion opportunity in financial infrastructure.
+Cover art/illustration via CryptoSlate. Image includes combined content which may include AI-generated content.
+The most significant shift in crypto finance this year isn’t a token launch, a price breakout, or a new blockchain upgrade. Instead, it is the quiet return of the public listing for crypto-focused entities.
+Kraken’sNov. 19 confidentialfilingfor a proposed initial public offering marks the latest step in what is rapidly becoming the industry’s largest capital-markets push since the 2021 bull run.
+This move came less than a week after the US exchange secured $800 million across two funding tranches at a $20 billion valuation, drawing investment from institutions rarely seen in crypto rounds, including Jane Street, DRW Venture Capital, Oppenheimer, and Citadel Securities.
+The filing caps months of speculation and reopens a debate that had gone dormant after the turbulence of 2022 and 2023. With Circle already public, several crypto firms, including BitGo,Gemini,Bullish, and Grayscale, are also pursuing public-market access, resulting in the sector’s first coordinated IPO cycle.
+According toBitwiseCEOHunter Horsley, this wave could collectively represent nearly $100 billion in market capitalization, a scale few predicted so soon after the industry’s reputational crises.
+Thus, Kraken’s entrance into the IPO queue is not simply an individual corporate milestone. It signals a broader transformation in how crypto companies want to be perceived: not as high-growth startups chasing hype cycles, but as durable, cash-flow-generating financial infrastructure businesses capable of operating under public-market discipline.
+That shift has implications not only for investors but also for the industry’s competitive structure.
+Circle’s debut earlier this year reopened a capital-markets window many believed was sealed shut. Regulatory pressure, the collapse of major offshore exchanges, and an extended market downturn had left investment banks wary of taking crypto firms public.
+However,Circle’s strong receptiondemonstrated that US-regulated companies with audited financials and institutional clients could once again attract long-term capital.
+That catalyst was quickly followed by BitGo’s filing, Gemini’s renewed pursuit of a listing, Bullish’s re-entry into the pipeline, and Grayscale’s effort to restructure and list portions of its business.
+Notably, the industry has not seen a synchronized public-market movement of this kind since the earlyCoinbaseera.
+However, the companies lining up today look materially different.
+They operate under stricter compliance regimes, handle custody for major institutions, process large volumes of fiat payments, and service tokenization pilots that now involve traditional asset managers and banks. The result is a group of businesses that increasingly resemble regulated financial intermediaries rather than speculative trading venues.
+Kraken’s filing is the clearest proof that the market window is no longer theoretical.
+Kraken’s confidential S-1 follows a period of aggressive expansion, strategic acquisitions, and record revenue performance.
+Earlier in the year, the exchange reported that it generated $1.5 billion inrevenue in 2024and surpassed that figure within the first three quarters of 2025.
+What stands out most is the business model behind those numbers. Kraken raised only $27 million in primary capital before this latest round, meaning most of its growth, infrastructure, and global scaling have been funded by operational cash flow rather than venture backing.
+In an ecosystem where many exchanges relied heavily on outside capital, Kraken built a balance sheet that resembles a traditional exchange group with consistent profitability, disciplined spending, and a clear alignment between revenue and operating costs.
+Moreover, the new $800 million raise is the largest in its history and brings in strategic partners with deep experience in market microstructure.
+Citadel Securities, one of the world’s most influential market makers, committed $200 million and will support Kraken in liquidity and risk management. The involvement of such a firm signals that crypto-market infrastructure is now intersecting directly with the architecture of modern global trading.
+At the same time, Kraken has gone on an acquisition streak by purchasing Small Exchange for $100 million to accelerate its derivatives ambitions and acquiring NinjaTrader while building out its xStocks platform for equity trading.
+These moves reflect a clear objective ofevolving from a crypto-only venue into a multi-asset, globally regulated trading house.
+As a result, the company is no longer dependent on spot-trading cycles. Itsoperations now include derivatives,tokenized assets, equities, staking services, regulated payments, and global clearing. It is expanding into Latin America, APAC, and EMEA while pursuing an increasingly extensive licensing strategy.
+In this configuration, a crypto exchange becomes a multi-product, multi-jurisdiction trading system capable of onboarding new asset classes as tokenization advances. This is a departure from the early exchange archetypes that depended heavily on bull markets and speculative volumes.
+Instead, Kraken and its peers are structuring themselves as long-term platforms that will eventually bridge traditional and on-chain capital markets.
+This transition has implications for investors as well. Public-market listings subject these firms to new levels of scrutiny: quarterly reporting, audited financial statements, transparency in compliance, and operational accountability.
+Those pressures may reshape the crypto-exchange landscape by rewarding firms that operate with regulatory discipline and punishing those that do not.
+The scale of the crypto IPO wave matters.
+Horsley’s estimate of $100 billion in combined valuation reflects a broader realization among investors that crypto is no longer defined solely by speculative assets.
+The companies that have emerged in the space, like exchanges, custodians, tokenization platforms, and derivatives venues, now command financial profiles comparable to mid-cap financial-services firms.
+This contrasts sharply with the last cycle.
+In 2021, listings were often justified by growth curves, user acquisition, and theoretical total addressable markets. In 2025, they are being justified by audited revenue, regulated market infrastructure, licensed operations, and established institutional clients.
+Moreover, Kraken’s vertically integrated architecture, which covers custody, clearing, settlement, wallet infrastructure, market data, and exchange matching, mirrors the structure of traditional exchange holding companies such as ICE or TMX.
+Circle’s payments and stablecoin rails now handle volumes comparable to those of early fintechs that later became billion-dollar public firms.BitGo’scustody relationships position it as a digital-asset equivalent of a trust-banking provider.
+Viewed together, these listings are no longer experimental. They represent an emerging public-market category: digital-asset financial infrastructure.
+The return ofcrypto IPOs signals a clear maturation phase. Exchanges and infrastructure firms are no longer simply competing for retail traders; they are competing to become the backbone of tokenization, cross-border payments, stablecoin issuance, and institutional settlement.
+The presence of Citadel Securities as a strategic investor illustrates how deeply traditional market structure players are now engaging with the sector.
+Circle’s public listing showed that digital-asset payments and stablecoin infrastructure have achieved enterprise-scale adoption. BitGo’s filing confirms that institutional custody is no longer a niche service but a core component of capital-markets infrastructure.
+The industry is moving out of its speculative adolescence and into a period where transparency, regulation, and financial stability determine leadership.
+Kraken’s IPO is therefore not just another listing. It is the latest test of whether crypto-native infrastructure can withstand the rigors of the public markets and whether global investors are ready to treat digital-asset platforms as long-term pillars of a new financial system.
+Oluwapelumi values Bitcoin's potential. He imparts insights on a range of topics like DeFi, hacks, mining and culture, underlining transformative power.
+Also known as "Akiba," Liam Wright is the Editor-in-Chief at CryptoSlate and host of the SlateCast. He believes that decentralized technology has the potential to make widespread positive change.
+
+Must-read crypto news & insights. Delivered daily.
+SEC and CFTC actions, state policy, ETFs, startups, and nationwide crypto market trends.
+Traditional finance meets digital assets: analysis of institutional adoption and innovation.
+Stay updated with the latest announcements from leading projects and companies.
+Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.

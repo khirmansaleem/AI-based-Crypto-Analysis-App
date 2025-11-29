@@ -1,0 +1,59 @@
+Category: stablecoins
+Title: The $300 billion backdoor threat that Europe didn’t see comingCrypto·1 week ago
+URL: https://cryptoslate.com/the-300-billion-backdoor-threat-that-europe-didnt-see-coming/
+
+================================================================================
+
+For the European Central Bank, the stablecoin market transforms what was once a crypto-native curiosity into a new channel for importing American financial stress.
+Cover art/illustration via CryptoSlate. Image includes combined content which may include AI-generated content.
+Stablecoins originated as crypto plumbing, tokens pegged to fiat currencies that enable traders to move in and out of volatile assets without relying on traditional banking systems.
+That narrow use case now sits on a market capitalization of more than $303 billion, up roughly 75% year-over-year, withTethercommanding about 56% of the market andCircle’sUSDCholding approximately 25%.
+Nearly 98% of all stablecoins are pegged to the US dollar, while the euro’s share amounts to less than €1 billion.
+For the European Central Bank (ECB), those numbers transform what was once a crypto-native curiosity into a new channel for importing American financial stress.
+Stablecoins no longer live solely on-chain. They’ve woven themselves into custody arrangements with banks, derivatives markets, and tokenised settlement systems.
+That entanglement creates pathways for contagion that didn’t exist five years ago, and European monetary authorities are now explicitly building crisis scenarios around them.
+The Bank of Italy’s Fabio Panetta, who sits on the ECB’s Governing Council, has directly highlighted the scale problem: stablecoins have reached a size where their collapse could have significant implications beyond the crypto sector.
+The ECB’s Jürgen Schaaf made the case even more bluntly in ablog posttitled “From hype to hazard.” Schaaf argues that stablecoins have moved from their crypto niche into tighter links with banks and non-bank financial institutions.
+A disorderly collapse “could reverberate across the financial system,” particularly if fire sales of the safe assets backing these tokens spill into bond markets.
+The Bank for International Settlements provides the global framing. The BIS Annual Economic Report 2025warnedthat if stablecoins continue to scale, they could undermine monetary sovereignty, trigger capital flight from weaker currencies, and lead to the sale of safe assets when pegs break.
+Schaaf cites projections that global stablecoin supply could jump from around $230 billion in 2025 to approximately $2 trillion by the end of 2028.
+The mechanism runs through reserve composition. The largest dollar-pegged stablecoins back their tokens primarily with US Treasuries, and at $300 billion, those holdings represent a significant portion of Treasury demand.
+At $2 trillion, they would rival some of the world’s largest sovereign wealth funds. A confidence shock triggering mass redemptions would force issuers to liquidate Treasuries quickly, injecting volatility into the global benchmark for risk-free rates.
+Olaf Sleijpen, Governor of De Nederlandsche Bank and an ECB policymaker, has outlined the transmission mechanism in interviews with the Financial Times.
+His warning carries weight because he’s describing something the ECB would actually have to respond to.
+Sleijpen’s scenario unfolds in two stages. First, a classic run: holders lose confidence and rush to redeem tokens for dollars. The issuer must dump Treasury holdings to meet redemptions.
+Second, the spillover: forced liquidation pushes up global yields and sours risk sentiment. Euro-area inflation expectations and financial conditions suddenly move in ways the ECB’s models didn’t anticipate.
+That second stage forces the ECB’s hand. If Treasury yields spike and risk spreads widen globally, European borrowing costs rise regardless of what the ECB intended.
+Sleijpen has said publicly that the ECB might need to “rethink” its monetary policy stance, not because the euro area has done anything wrong, but because dollar-stablecoin instability has rewired global financial conditions.
+He frames this as stealth dollarization. Heavy reliance on dollar-denominated tokens makes Europe look like an emerging market that must live with the Federal Reserve’s choices.
+An old-school emerging-market problem, imported dollar shocks, re-enters Europe through an on-chain back door.
+European authorities haven’t waited for a crisis to start modeling what one would look like.
+The European Systemic Risk Board, chaired byChristine Lagarde, recentlyhighlighted multi-issuer stablecoins as a specific vulnerability.
+These arrangements involve a single operator issuing tokens across multiple jurisdictions while managing reserves as a single global pool.
+The ESRB’s latest crypto report warns that non-compliant stablecoins, such asUSDT, continue to trade heavily among EU investors and “may pose risks to financial stability” through liquidity mismatches and regulatory arbitrage.
+In a stress event, holders might rush to redeem preferentially in the EU, where MiCA provides stronger protections, draining local reserves fastest.
+A VoxEU/CEPR piece by European central bank economists describes multi-issuer stablecoins as a macroprudential issue.
+Their scenario models focus on jurisdictions with more favorable rules, which accelerate outflows and spread stress to banks that hold reserves.
+The Dutch markets regulator, AFM, has published scenario studies that incorporate stablecoin instability as a standard tail risk.
+One “plausible future” combines loss of trust in the dollar, cyberattacks, and stablecoin instability to show how quickly systemic stress could propagate.
+This isn’t speculative fiction, but rather the work supervisors do when they consider a risk plausible enough to warrant contingency plans.
+The alarmist framing has a regulatory counterweight. The European Banking Authority has recently pushed back on calls to rewrite crypto rules, arguing that MiCA already includes safeguards against stablecoin runs, including full-reserve backing, governance standards, and caps on large tokens.
+Simultaneously, a consortium of nine major European banks, including ING and UniCredit, announced plans to launch a euro-denominated stablecoin under EU rules.
+The launch comes even as the ECB voices scepticism over stablecoins, with Lagarde warning that privately issued tokens pose risks to monetary policy and financial stability.
+Schaaf’s blog outlines the broader strategy: to encourage euro-denominated, tightly regulated stablecoins while advancing the digital euro as an alternative to central bank digital currencies.
+The goal is to reduce reliance on offshore dollar-denominated tokens and maintain the ECB’s control over the monetary rails.
+If Europeans use on-chain money, it should be money the ECB can supervise, denominated in euros, and backed by assets that don’t require liquidating Treasuries in a crisis.
+The dramatic language consisting of “global financial crisis” and “shock scenarios” contrasts with present conditions.
+Stablecoins at $300 billion remain small compared to global bank balance sheets. There hasn’t been a truly systemic stablecoin run, even when Tether faced skepticism or when Terra’s collapse occurred.
+But the ECB isn’t warning about 2025. It’s a warning about 2028, when projections place the stablecoin market cap at $2 trillion and entanglement with traditional finance is expected to be far deeper.
+The real story is that European monetary authorities now treat stablecoins as a live channel for importing US shocks and losing monetary-policy autonomy.
+That perception means more stress tests, including stablecoin-run scenarios, more regulatory fights over MiCA’s scope, and faster pushes to get European money on-chain through domestic alternatives.
+The $300 billion market, which began as crypto plumbing, has evolved into a front in the contest over who controls the future of money, and whether Europe can insulate itself from dollar shocks that arrive through blockchain transactions rather than bank wires.
+Gino Matos is a law school graduate and a seasoned journalist with six years of experience in the crypto industry. His expertise primarily focuses on the Brazilian blockchain ecosystem and developments in decentralized finance (DeFi).
+Also known as "Akiba," Liam Wright is the Editor-in-Chief at CryptoSlate and host of the SlateCast. He believes that decentralized technology has the potential to make widespread positive change.
+
+Your daily dose of must-have crypto news and deep dives. Direct to your inbox.
+MiCA rules, cross-border policy, stablecoins, and how EU regulation steers the regional crypto market.
+Comprehensive crypto news, insights, and data to stay ahead in the digital asset economy.
+Stay updated with the latest announcements from leading projects and companies.
+Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.

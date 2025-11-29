@@ -1,0 +1,46 @@
+Category: etf
+Title: Why Texas is buying Bitcoin from BlackRock before building a real reserveETF·1 day ago
+URL: https://cryptoslate.com/texas-takes-the-leap-toward-bitcoin-with-5-million-ibit-purchase/
+
+================================================================================
+
+Operational challenges prompt Texas's strategic use of an ETF as a temporary measure while building sovereign-grade custody.
+Cover art/illustration via CryptoSlate. Image includes combined content which may include AI-generated content.
+Texas has taken the first formal step toward becoming the first US state to holdBitcoinas a strategic reserve asset.
+On Nov. 25, Lee Bratcher, president of the Texas Blockchain Council,reportedthat theworld’s eighth-largest economy,valued at $2.7 trillion, purchased $5 million worth ofBlackRock’sspot Bitcoin ETF,IBIT.
+He added that a second $5 million allocation is already lined up for direct Bitcoin acquisition once the state finalizes a custody and liquidity framework required under a new reserve law.
+The two tranches create a bridge between today’s institutional rails and a future in which governments do not just buy Bitcoin but hold it.
+The initial exposure did not go directly on-chain. Instead, Texas entered via IBIT, which has become the default wrapper for large allocators seeking Bitcoin access within familiar regulatory and operational infrastructure.
+This purchase was enabled by Senate Bill 21, a lawsigned by Governor Greg Abbottin June that established the Texas Strategic Bitcoin Reserve.
+The framework allows the state Comptroller to accumulate Bitcoin so long as the asset maintains a 24-month average market capitalization above $500 billion. Bitcoin is the only cryptocurrency that meets the threshold.
+The structure places the reserve outside the state treasury, sets governance channels for how the assets are held, and introduces an advisory committee to monitor risk and oversight.
+Meanwhile, the first $5 million is small relative to the scale of state finances, but the mechanics matter more than the number.
+Texas is testing whether Bitcoin can be formalized as a public reserve instrument within a state-level financial system that already manages hundreds of billions of dollars across different pools.
+Once the operational processes are in place, the second tranche will involve self-custodied Bitcoin, which introduces very different implications for liquidity, transparency, and audit practices.
+The state is designing procedures that resemble sovereign-grade custody rather than institutional brokerage. The reserve will require a qualified custodian, cold-storage capacity, key management protocols, independent audits, and reporting schedules.
+These are the building blocks of a repeatable template that other states could adopt without reinventing the governance architecture.
+The decision to enter through IBIT was not a signal of preference for ETFs over native Bitcoin. It was an operational workaround.
+IBIT is only in its second year, yet it has emerged as the most widely held Bitcoin ETF among major institutions. The fund is the largest Bitcoin ETF product, with cumulative net inflows of more than $62 billion.
+Moreover, the apparatus for public-sector self-custody does not exist in most jurisdictions, and creating that infrastructure requires procurement, security modeling, and political signoff. So, the state used IBIT as a placeholder, a temporary facility that allows it to express exposure while finalizing the permanent structure.
+This detour is instructive because it mirrors the trajectory of other large allocators.
+Harvard University disclosed that IBITbecame one of its largest US equity holdings in the third quarter.Abu Dhabi Investment Counciltripled its IBIT exposure over the same period, reaching roughly eight million shares. Wisconsin’s pension system disclosed more than $160 million across spot Bitcoin ETFs earlier this year, also routed through IBIT.
+The pattern is clear. Large institutions with different mandates, geographies, and risk frameworks are gravitating toward the same instrument. IBIT offers custody through a known intermediary, simplified reporting lines, and a clean accounting presentation under the new fair-value rules that took effect in 2025.
+These conveniences have turned the ETF into a de facto entry point for public and quasi-public entities. Texas is unique only in the fact that its IBIT exposure is meant to be temporary.
+The broader question is whether Texas becomes an anomaly or a blueprint.
+Bitcoin analyst Shanaka Anslem Pererasaid:
+“The cascade is mathematical. Four to eight states are positioned to follow within eighteen months, collectively commanding over $1.2 trillion in reserves. Institutional inflows projected between $300 million to $1.5 billion in near-term mimicry. This is not speculation. This is game theory in motion.”
+Already, politically aligned states likeNew Hampshireand Arizona also have Bitcoin reserve laws because they view the top crypto as a strategic hedge to the global financial system.
+More states could follow, as they could use their structural surpluses to allocate to Bitcoin for diversification, especially under the new accounting standards that neutralize earlier mark-to-market penalties.
+Moreover, the implications of state-level involvement extend beyond symbolism. ETF purchases do not alter the circulating supply because the trust structure issues and redeems shares without removing coins from liquid markets.
+Self-custody does the opposite. Once coins are purchased for cold storage, they leave the tradable float, reducing the supply available to exchanges and market makers.
+This distinction matters if Texas scales the reserve beyond its initial $10 million. Even modest state-level demand introduces a new type of buy-side participant, one that behaves countercyclically to noise traders and does not churn positions.
+The effect resembles a stabilizing anchor rather than a source of volatility. If other states adopt similar policies, the Bitcoin supply curve becomes more inelastic, increasing price sensitivity.
+Oluwapelumi values Bitcoin's potential. He imparts insights on a range of topics like DeFi, hacks, mining and culture, underlining transformative power.
+Also known as "Akiba," Liam Wright is the Editor-in-Chief at CryptoSlate and host of the SlateCast. He believes that decentralized technology has the potential to make widespread positive change.
+
+Get the latest crypto news and expert insights. Delivered to you daily.
+Comprehensive coverage of Bitcoin markets, mining, halving cycles, and institutional adoption trends.
+SEC and CFTC actions, state policy, ETFs, startups, and nationwide crypto market trends.
+News and analysis on Bitcoin and crypto ETFs shaping institutional access to digital assets.
+Stay updated with the latest announcements from leading projects and companies.
+Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.

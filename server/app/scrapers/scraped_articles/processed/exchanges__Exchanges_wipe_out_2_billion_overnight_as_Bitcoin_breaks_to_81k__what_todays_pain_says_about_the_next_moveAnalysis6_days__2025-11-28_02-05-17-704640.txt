@@ -1,0 +1,44 @@
+Category: exchanges
+Title: Exchanges wipe out $2 billion overnight as Bitcoin breaks to $81k — what today’s pain says about the next moveAnalysis·6 days ago
+URL: https://cryptoslate.com/traders-lose-2-billion-overnight-as-bitcoin-breaks-to-81k-what-todays-pain-says-about-the-next-move/
+
+================================================================================
+
+Bitcoin loses $85k support as extreme fear grips leveraged traders.
+Cover art/illustration via CryptoSlate. Image includes combined content which may include AI-generated content.
+Bitcoin’sbreak below $85,000triggered more than $2 billion in crypto derivatives liquidations within 24 hours as risk assets came under pressure again.
+BTC briefly approached $85,000 earlier in the week before bouncing, but momentum for a recovery was minimal as it broke down as low as $81,600 overnight.
+CoinGlass data shows more than $2 billion in crypto derivatives liquidations over the past 24 hours, exacerbating the scale of forced unwinds as volatility picked up.
+The bulk came from long positions, with CoinGlass data showing about $1.86 billion in long liquidations versus roughly $140 million from shorts.
+One-hour and four-hour panels on the same dashboard show the cascade arriving in waves rather than a single print, which fits with market commentary about a grind lower through multiple support levels instead of an abrupt crash.
+CoinGlass’ exchange heatmap points to a concentrated flush on Bybit and Hyperliquid, which together accounted for more than half of the notional wiped out over 24 hours.
+Bybit, Hyperliquid and Binance carried the heaviest books, followed by HTX and OKX. The distribution across major venues over the latest 24-hour window appears as:
+On the asset side, CoinGlass’ symbol heatmap shows BTC accounting for about $1.01 billion of the 24-hour total, with ETH near $423 million and SOL over $100 million.
+That pattern fits a classic beta ladder where the benchmark future takes the first blow, then large alt pairs follow as margin calls propagate through retail-heavy venues. Smaller caps fill the remaining “Others” bucket on the treemap, but their notional contribution remains modest compared with the top three names.
+Sentiment metrics have moved in tandem with the deleveraging. TheCrypto Fear & Greed Indexsits in the “Extreme Fear” band around 10 to 15, according to the latest reading cited by market trackers.
+That is one of the lowest prints since the early stages of the current cycle and comes less than a month after the same gauge spent time in “Greed” territory near all-time highs. Such a sharp shift does not in itself mark capitulation or a floor, but it confirms that positioning and mood have flipped from momentum chasing to capital preservation in a short window.
+The backdrop in spot markets helps explain why thebreak of $85,000drew such an outsized response from derivatives books. U.S. spot Bitcoin ETFs have seen record net outflows in November, with more than$3 billion leavingthe group so far.
+Those vehicles absorbed new issuance and secondary selling during earlier corrections; without that steady bid, dips now lean harder on discretionary buyers and short-term traders. As redemptions continue, the buffer that once absorbed forced selling from perps shrinks, so each wave of liquidations has greater impact on price.
+On futures venues, CoinGlass’ BTC futures metrics show funding rates compressing toward neutral across major exchanges, with some books briefly flirting with negative but not flipping over in a sustained way.
+Open interest has also rolled back from September and October highs that some analytics platforms had already flagged as a seven-month peak.
+With funding now only marginally positive, longs are paying far less to hold exposure, which usually signals that speculative leverage is being pared back rather than aggressively rebuilt.
+The drop in open interest confirms that some leverage has left the system, which can reduce crash risk, but it also means there is less immediate firepower available for any sharp rebound until new positions are added.
+Options markets are leaning toward protection rather than outright bullish bets. Deribit’sDVOL indexhas ticked higher into the low-60s on an implied volatility basis, while short-dated skew data from tools such asLaevitasshow a premium for put options over comparable calls.
+According to Deribit metrics, traders have been paying up for downside convexity in the front part of the curve, which leaves dealers short gamma around nearby strikes. That structure can amplify intraday moves near levels such as $82,000–$88,000, as even small spot flows force hedging in the same direction as the price move.
+Key spot levels now frame the short-term scenarios. The former support at $85,000 has turned into the first area bulls need to reclaim to ease pressure from liquidations and to reduce the incentive for shorts to lean on perps.
+Below, the $82,000 to $79,000 pocket combines a high-volume node on many on-chain and order book tools with the round-number psychology. Overhead, the $90,000 to $94,000 band marks the region of the last breakdown and contains heavy open interest in short-dated call options on Deribit.
+Macro conditions add further headwinds. The U.S. dollar index has firmed month-over-month and the 10-year Treasury yield trades around 4.1–4.2%, in line with aReuters pollthat projects only a modest drift higher over the next year.
+Historically, crypto rallies have struggled when both the dollar and real yields move higher together, as risk assets compete with safer instruments for capital.
+This month’s pullback in equities and other growth proxies, has reinforced the sense that crypto is again trading as a high-beta expression of broader risk sentiment rather than a separate store-of-value trade.
+From here, market participants are sketching three broad paths for the next few weeks.
+A base case hasBTCchopping between roughly $82,000 and $90,000 while ETF outflows moderate, funding hovers around flat and DVOL stabilizes as weekly options roll off.
+A more bearish path would see repeated failures to hold or retake $85,000, opening a liquidity run into the high $70,000s where options put interest and spot support cluster.
+A more constructive setup would involve a firm reclaim of $85,000, a turn toward net inflows in U.S. ETFs on theFarsidedashboard and a softening of put skew, which could leave shorts vulnerable to a move back toward the low $90,000s.
+For now, the liquidation maps show where the first wave of pain landed, and funding, flows and volatility will show whether that flush has cleared the path for consolidation or set the stage for another round.
+Also known as "Akiba," Liam Wright is a reporter, podcast producer, and Editor-in-Chief at CryptoSlate. He believes that decentralized technology has the potential to make widespread positive change.
+
+Your daily dose of must-have crypto news and deep dives. Direct to your inbox.
+Comprehensive coverage of Bitcoin markets, mining, halving cycles, and institutional adoption trends.
+In-depth market analysis and data-driven insights into blockchain projects, trends, and digital assets.
+Stay updated with the latest announcements from leading projects and companies.
+Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.
