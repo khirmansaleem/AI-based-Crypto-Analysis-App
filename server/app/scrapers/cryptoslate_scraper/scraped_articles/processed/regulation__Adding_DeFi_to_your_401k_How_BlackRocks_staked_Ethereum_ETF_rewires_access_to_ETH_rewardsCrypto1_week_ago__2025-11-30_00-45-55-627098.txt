@@ -1,5 +1,5 @@
 Category: regulation
-Title: Adding DeFi to your 401k: How BlackRock’s staked Ethereum ETF rewires access to ETH rewardsCrypto·6 days ago
+Title: Adding DeFi to your 401k: How BlackRock’s staked Ethereum ETF rewires access to ETH rewardsCrypto·1 week ago
 URL: https://cryptoslate.com/adding-defi-to-your-401k-how-blackrocks-staked-ethereum-etf-rewires-access-to-eth-yield/
 
 ================================================================================
@@ -34,7 +34,7 @@ On custody, every staked ETF proposal concentrates staking into a handful of cus
 Gino Matos is a law school graduate and a seasoned journalist with six years of experience in the crypto industry. His expertise primarily focuses on the Brazilian blockchain ecosystem and developments in decentralized finance (DeFi).
 Also known as "Akiba," Liam Wright is the Editor-in-Chief at CryptoSlate and host of the SlateCast. He believes that decentralized technology has the potential to make widespread positive change.
 
-Essential crypto updates and analyses. Straight to your inbox, every day.
+Join our X community for real-time crypto news and expert insights.
 Ethereum updates, Layer-2 growth, DeFi ecosystem insights, and technical innovation across the network.
 SEC and CFTC actions, state policy, ETFs, startups, and nationwide crypto market trends.
 Comprehensive crypto news, insights, and data to stay ahead in the digital asset economy.

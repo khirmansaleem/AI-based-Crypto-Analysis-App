@@ -12,6 +12,7 @@ class NewsArticle(Base):
     title = Column(Text, nullable=False)
     url = Column(Text, unique=True, nullable=False)
     content = Column(Text, nullable=False)
+    summary = Column(Text, nullable=True)
 
     category = Column(Text, nullable=False)
     published_at = Column(TIMESTAMP, nullable=True)

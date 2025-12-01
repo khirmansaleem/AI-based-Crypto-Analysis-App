@@ -1,7 +1,7 @@
 import os
-from app.services.file_parser import parse_article_file
+from app.services.news.file_parser import parse_article_file
 
-SCRAPED_DIR = "app/scrapers/scraped_articles"
+SCRAPED_DIR = "app/scrapers/cryptoslate_scraper/scraped_articles"
 
 
 def load_all_scraped_articles():

@@ -1,5 +1,5 @@
 Category: exchanges
-Title: No, 800k BTC didn’t hit the market: Why exchange internal transfers fooled tradersExchanges·2 days ago
+Title: No, 800k BTC didn’t hit the market: Why exchange internal transfers fooled tradersExchanges·4 days ago
 URL: https://cryptoslate.com/no-800k-btc-didnt-hit-the-market-how-exchange-utxo-housekeeping-fooled-traders/
 
 ================================================================================
@@ -60,7 +60,7 @@ Until those flows materialize, even the largest on-chain transactions can be pur
 Gino Matos is a law school graduate and a seasoned journalist with six years of experience in the crypto industry. His expertise primarily focuses on the Brazilian blockchain ecosystem and developments in decentralized finance (DeFi).
 Also known as "Akiba," Liam Wright is the Editor-in-Chief at CryptoSlate and host of the SlateCast. He believes that decentralized technology has the potential to make widespread positive change.
 
-Catch the latest in crypto by following us on X. Stay informed on the go.
+Follow us on X for your essential dose of daily crypto news and deep dives.
 Comprehensive coverage of Bitcoin markets, mining, halving cycles, and institutional adoption trends.
 Updates and insights on centralized and decentralized exchanges, liquidity, and innovation.
 Stay updated with the latest announcements from leading projects and companies.

@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from datetime import datetime
 import hashlib
-
+from app.services.ai.summarizer import generate_summary  # <-- ADD THIS IMPORT
 from app.models.news.news_article import NewsArticle
 
 
@@ -32,11 +32,15 @@ def insert_article(
         if existing:
             return {"status": "exists", "id": existing.id}
 
+        content_summary = generate_summary(content)
+        summary = f"{title}. {content_summary}"
+
         # Insert new record
         new_article = NewsArticle(
             title=title,
             url=url,
             content=content,
+            summary=summary,  # <--- NEW FIELD
             category=category,
             hash=article_hash,
             created_at=datetime.utcnow(),
