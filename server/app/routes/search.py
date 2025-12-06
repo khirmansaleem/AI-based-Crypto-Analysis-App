@@ -11,10 +11,9 @@ router = APIRouter(prefix="/search", tags=["search"])
 
 class SearchRequest(BaseModel):
     query: str
-    limit: int = 5
 
 
 @router.post("/")
 def semantic_search(body: SearchRequest, db: Session = Depends(get_db)):
-    results = search_similar_articles(db, body.query, body.limit)
+    results = search_similar_articles(db, body.query)
     return {"query": body.query, "results": results}

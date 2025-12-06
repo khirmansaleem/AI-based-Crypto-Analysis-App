@@ -7,41 +7,47 @@ from app.services.ai.embeddings import get_embedding
 from app.services.ai.summarizer import generate_summary
 
 
-SIMILARITY_THRESHOLD = 0.55  # realistic for mpnet embeddings
-MAX_CONTEXT_RESULTS = 5
-MAX_DAYS = 14  # strict recency, but using created_at now
+# ---------------------------------------------------------
+# CONFIGURATION
+# ---------------------------------------------------------
+PRIMARY_THRESHOLD = 0.70  # strong similarity cutoff
+FALLBACK_THRESHOLD = 0.60  # softer similarity if primary fails
+MAX_FETCH = 20  # initial pool from pgvector
+MAX_CONTEXT_RESULTS = 5  # final RAG references count
+MAX_DAYS = 14  # recency filter
+EMBED_DIM = 768  # mpnet embedding size
 
 
-def search_similar_articles(
-    db: Session,
-    query_text: str,
-    limit: int = 20,  # fetch more, filter after
-) -> List[Tuple[dict, float]]:
+# ---------------------------------------------------------
+# SQL TEMPLATE (Used for both primary + fallback)
+# ---------------------------------------------------------
+BASE_SQL = f"""
+SELECT
+    na.id,
+    na.title,
+    na.url,
+    na.content,
+    na.category,
+    na.created_at,
+    1 - (e.embedding <=> :query_embedding) AS similarity_score
+FROM embeddings e
+JOIN news_articles na ON na.id = e.article_id
+WHERE na.created_at >= NOW() - INTERVAL '{MAX_DAYS} days'
+ORDER BY e.embedding <=> :query_embedding
+LIMIT :limit
+"""
 
-    query_vector = get_embedding(query_text)
 
-    sql = text(
-        f"""
-        SELECT
-            na.id,
-            na.title,
-            na.url,
-            na.content,
-            na.category,
-            na.created_at,
-            1 - (e.embedding <=> :query_embedding) AS similarity_score
-        FROM embeddings e
-        JOIN news_articles na ON na.id = e.article_id
-        WHERE na.created_at >= NOW() - INTERVAL '{MAX_DAYS} days'
-        ORDER BY e.embedding <=> :query_embedding
-        LIMIT :limit
-        """
-    ).bindparams(
-        bindparam("query_embedding", type_=Vector(768)),
+# ---------------------------------------------------------
+# Helper: Execute pgvector query
+# ---------------------------------------------------------
+def _run_vector_query(db: Session, query_vector, limit: int):
+    sql = text(BASE_SQL).bindparams(
+        bindparam("query_embedding", type_=Vector(EMBED_DIM)),
         bindparam("limit", type_=Integer),
     )
 
-    rows = (
+    return (
         db.execute(
             sql,
             {"query_embedding": query_vector, "limit": limit},
@@ -50,75 +56,77 @@ def search_similar_articles(
         .all()
     )
 
-    results: List[Tuple[dict, float]] = []
 
-    for row in rows:
-        similarity = float(row["similarity_score"])
+# ---------------------------------------------------------
+# Helper: Convert row into summary dict
+# ---------------------------------------------------------
+def _row_to_article_summary(row):
+    summary = generate_summary(row["content"], max_sentences=4)
 
-        # strict similarity filter
-        if similarity < SIMILARITY_THRESHOLD:
-            continue
+    return {
+        "id": row["id"],
+        "title": row["title"],
+        "url": row["url"],
+        "summary": f"{row['title']}. {summary}",
+        "category": row["category"],
+        "created_at": row["created_at"],
+        "similarity": float(row["similarity_score"]),
+    }
 
-        # summarizer: use sentence-based summarizer (v3)
-        content_summary = generate_summary(row["content"], max_sentences=4)
-        final_summary = f"{row['title']}. {content_summary}"
 
-        article_dict = {
-            "id": row["id"],
-            "title": row["title"],
-            "url": row["url"],
-            "summary": final_summary,
-            "category": row.get("category"),
-            "created_at": row.get("created_at"),
-            "similarity": similarity,
-        }
+# ---------------------------------------------------------
+# MAIN LOGIC: Semantic search with fallback
+# ---------------------------------------------------------
+def search_similar_articles(
+    db: Session,
+    query_text: str,
+) -> List[Tuple[dict, float]]:
 
-        results.append((article_dict, similarity))
+    # 1. Generate embedding
+    query_vector = get_embedding(query_text)
 
-    # Sort by similarity (recency already filtered in SQL)
-    results.sort(key=lambda x: x[1], reverse=True)
+    # 2. Run primary query (top 20)
+    initial_rows = _run_vector_query(db, query_vector, MAX_FETCH)
 
-    # If nothing found → graceful fallback (give top 3 irrespective of threshold)
-    if not results:
-        fallback_sql = text(
-            f"""
-    SELECT
-        na.id,
-        na.title,
-        na.url,
-        na.content,
-        na.category,
-        na.created_at,
-        1 - (e.embedding <=> :query_embedding) AS similarity_score
-    FROM embeddings e
-    JOIN news_articles na ON na.id = e.article_id
-    WHERE na.created_at >= NOW() - INTERVAL '{MAX_DAYS} days'
-    ORDER BY e.embedding <=> :query_embedding
-    LIMIT :limit
-    """
-        ).bindparams(
-            bindparam("query_embedding", type_=Vector(768)),
-            bindparam("limit", type_=Integer),
-        )
+    primary_results = []
 
-        fallback_rows = (
-            db.execute(fallback_sql, {"query_embedding": query_vector}).mappings().all()
-        )
+    # 3. Filter using primary threshold
+    for row in initial_rows:
+        sim = float(row["similarity_score"])
 
-        fallback_results = []
-        for row in fallback_rows:
-            content_summary = generate_summary(row["content"], max_sentences=4)
-            article_dict = {
-                "id": row["id"],
-                "title": row["title"],
-                "url": row["url"],
-                "summary": f"{row['title']}. {content_summary}",
-                "category": row["category"],
-                "created_at": row["created_at"],
-                "similarity": float(row["similarity_score"]),
-            }
-            fallback_results.append((article_dict, float(row["similarity_score"])))
+        if sim >= PRIMARY_THRESHOLD:
+            primary_results.append((_row_to_article_summary(row), sim))
 
-        return fallback_results
+    # 4. If we have good matches → return top 5
+    if primary_results:
+        primary_results.sort(key=lambda x: x[1], reverse=True)
+        return primary_results[:MAX_CONTEXT_RESULTS]
 
-    return results[:MAX_CONTEXT_RESULTS]
+    # ---------------------------------------------------------
+    # FALLBACK LOGIC (No article ≥ 0.70)
+    # ---------------------------------------------------------
+    fallback_results = []
+
+    for row in initial_rows:
+        sim = float(row["similarity_score"])
+
+        if sim >= FALLBACK_THRESHOLD:
+            fallback_results.append((_row_to_article_summary(row), sim))
+
+    # Sorted by similarity
+    fallback_results.sort(key=lambda x: x[1], reverse=True)
+
+    # If fallback threshold produced results
+    if fallback_results:
+        return fallback_results[:MAX_CONTEXT_RESULTS]
+
+    # ---------------------------------------------------------
+    # FINAL SAFETY NET: Return top 5 raw articles (no threshold)
+    # DeepSeek performs better with some context than none.
+    # ---------------------------------------------------------
+    final_fallback = [
+        (_row_to_article_summary(row), float(row["similarity_score"]))
+        for row in initial_rows[:MAX_CONTEXT_RESULTS]
+    ]
+
+    return final_fallback
