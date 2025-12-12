@@ -1,8 +1,11 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from datetime import datetime
+from dateutil import parser as dateparser
 import hashlib
-from app.services.ai.summarizer import generate_summary  # <-- ADD THIS IMPORT
+from app.services.deepseek_client.summarizer import (
+    generate_summary,
+)  # <-- ADD THIS IMPORT
 from app.models.news.news_article import NewsArticle
 
 
@@ -11,18 +14,19 @@ def compute_hash(title: str, url: str, content: str) -> str:
     return hashlib.sha256(combined.encode("utf-8")).hexdigest()
 
 
-def insert_article(
+async def insert_article(
     db: Session,
     title: str,
     url: str,
     content: str,
     category: str,
+    published_at: str = None,  # <-- NEW PARAMETER
 ):
     try:
-        # Compute deterministic hash based on stable input fields
+        # Compute deterministic hash
         article_hash = compute_hash(title, url, content)
 
-        # Check for duplicates by url or hash
+        # Duplicate check
         existing = (
             db.query(NewsArticle)
             .filter((NewsArticle.url == url) | (NewsArticle.hash == article_hash))
@@ -32,20 +36,29 @@ def insert_article(
         if existing:
             return {"status": "exists", "id": existing.id}
 
-        content_summary = generate_summary(content)
+        # --- Convert PublishedAt safely ---
+        pub_datetime = None
+        if published_at:
+            try:
+                pub_datetime = dateparser.parse(published_at)
+            except Exception:
+                pub_datetime = None  # failsafe
+
+        # --- Generate LLM summary (async) ---
+        content_summary = await generate_summary(content, pub_datetime)
         summary = f"{title}. {content_summary}"
 
-        # Insert new record
+        # --- Create new DB row ---
         new_article = NewsArticle(
             title=title,
             url=url,
             content=content,
-            summary=summary,  # <--- NEW FIELD
+            summary=summary,
             category=category,
             hash=article_hash,
             created_at=datetime.utcnow(),
+            published_at=pub_datetime,  # <-- NOW STORED
             is_relevant=1,
-            published_at=None,
         )
 
         db.add(new_article)

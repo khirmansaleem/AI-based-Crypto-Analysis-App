@@ -1,6 +1,7 @@
 Category: exchanges
-Title: Exchanges wipe out $2 billion overnight as Bitcoin breaks to $81k — what today’s pain says about the next moveAnalysis·1 week ago
+Title: AnalysisExchanges wipe out $2 billion overnight as Bitcoin breaks to $81k — what today’s pain says about the next moveBitcoin loses $85k support as extreme fear grips leveraged traders.3 weeks ago
 URL: https://cryptoslate.com/traders-lose-2-billion-overnight-as-bitcoin-breaks-to-81k-what-todays-pain-says-about-the-next-move/
+PublishedAt: 2025-11-21T11:26:13+00:00
 
 ================================================================================
 
@@ -36,9 +37,14 @@ A more bearish path would see repeated failures to hold or retake $85,000, openi
 A more constructive setup would involve a firm reclaim of $85,000, a turn toward net inflows in U.S. ETFs on theFarsidedashboard and a softening of put skew, which could leave shorts vulnerable to a move back toward the low $90,000s.
 For now, the liquidation maps show where the first wave of pain landed, and funding, flows and volatility will show whether that flush has cleared the path for consolidation or set the stage for another round.
 Also known as "Akiba," Liam Wright is a reporter, podcast producer, and Editor-in-Chief at CryptoSlate. He believes that decentralized technology has the potential to make widespread positive change.
-
-Follow us on X for instant crypto news and insights updates.
 Comprehensive coverage of Bitcoin markets, mining, halving cycles, and institutional adoption trends.
+PNC's agency model with Coinbase spotlights a secure path for Bitcoin adoption amid complex regulations.
+Crypto market recovers backed by adoption news from traditional finance converging with macro easing expectations and forced liquidations of leveraged shorts.
 In-depth market analysis and data-driven insights into blockchain projects, trends, and digital assets.
+The new defense bill avoids the word "crypto" entirely, yet Section 1543 creates a stealth mandate that could make Jason Lowery’s controversial SoftWar thesis the law of the land.
+Bitcoin investors prepare for potential liquidity shifts as Federal Reserve policy looms over crypto markets.
 Stay updated with the latest announcements from leading projects and companies.
+Canton Network partners with BOLTS to reinforce asset security against quantum threats, safeguarding $6 trillion in real-world investments.
+Integrating Fireblocks enhances Bitunix's security with multi-party computation-based custody, reducing unauthorized access risk.
 Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.
+Crypto and precious metals in tax-advantaged accounts with simple pricing.

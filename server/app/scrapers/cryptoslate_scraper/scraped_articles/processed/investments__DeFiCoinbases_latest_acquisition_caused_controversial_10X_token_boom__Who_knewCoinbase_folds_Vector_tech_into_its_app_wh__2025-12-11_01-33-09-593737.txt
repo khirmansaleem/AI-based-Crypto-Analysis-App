@@ -1,6 +1,7 @@
 Category: investments
-Title: Coinbase’s latest acquisition caused controversial 10X token boom – Who knew?DeFi·6 days ago
+Title: DeFiCoinbase’s latest acquisition caused controversial 10X token boom – Who knew?Coinbase folds Vector tech into its app while Tensor Foundation keeps the marketplace and TNSR, stoking questions about pre-announcement buying and tokenholder upside on future launches.3 weeks ago
 URL: https://cryptoslate.com/how-coinbases-latest-deal-turned-a-token-boom-into-a-costly-lesson-for-retail-traders/
+PublishedAt: 2025-11-22T22:30:10+00:00
 
 ================================================================================
 
@@ -47,8 +48,11 @@ Every token launch on Coinbase’s platform now carries the implicit risk that t
 If Coinbase wants to dominate token launches, it needs a better answer than “equity holders benefit, token holders don’t.” The Vector deal proves it doesn’t have one yet. The market will decide whether that matters.
 Gino Matos is a law school graduate and a seasoned journalist with six years of experience in the crypto industry. His expertise primarily focuses on the Brazilian blockchain ecosystem and developments in decentralized finance (DeFi).
 Also known as "Akiba," Liam Wright is the Editor-in-Chief at CryptoSlate and host of the SlateCast. He believes that decentralized technology has the potential to make widespread positive change.
-
-Get the latest crypto news and expert insights. Delivered to you daily.
 Everything about decentralized finance, from lending and yield farming to protocol innovation.
+Citadel's Dec. 2 filing urges the SEC not to grant broad exemptions for tokenized-equity trading on DeFi, Hayden Adams says TradFi is coming for open-source builders.
+Base’s new CCIP bridge drew fire from Solana voices claiming it siphons capital, while Jesse Pollak argues it’s what builders want in a connected DeFi future.
 Stay updated with the latest announcements from leading projects and companies.
+Canton Network partners with BOLTS to reinforce asset security against quantum threats, safeguarding $6 trillion in real-world investments.
+Integrating Fireblocks enhances Bitunix's security with multi-party computation-based custody, reducing unauthorized access risk.
 Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.
+Crypto and precious metals in tax-advantaged accounts with simple pricing.

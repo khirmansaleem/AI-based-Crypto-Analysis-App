@@ -1,6 +1,7 @@
 Category: exchanges
-Title: No, 800k BTC didn’t hit the market: Why exchange internal transfers fooled tradersExchanges·4 days ago
+Title: ExchangesNo, 800k BTC didn’t hit the market: Why exchange internal transfers fooled tradersInside address consolidation, proof-of-reserve prep, and why these moves spook retail despite neutral market impact.2 weeks ago
 URL: https://cryptoslate.com/no-800k-btc-didnt-hit-the-market-how-exchange-utxo-housekeeping-fooled-traders/
+PublishedAt: 2025-11-25T14:00:27+00:00
 
 ================================================================================
 
@@ -59,9 +60,14 @@ What matters is net flows, coins moving from external holders to exchange deposi
 Until those flows materialize, even the largest on-chain transactions can be pure theater, signaling custody hygiene rather than directional bets.
 Gino Matos is a law school graduate and a seasoned journalist with six years of experience in the crypto industry. His expertise primarily focuses on the Brazilian blockchain ecosystem and developments in decentralized finance (DeFi).
 Also known as "Akiba," Liam Wright is the Editor-in-Chief at CryptoSlate and host of the SlateCast. He believes that decentralized technology has the potential to make widespread positive change.
-
-Follow us on X for your essential dose of daily crypto news and deep dives.
 Comprehensive coverage of Bitcoin markets, mining, halving cycles, and institutional adoption trends.
+PNC's agency model with Coinbase spotlights a secure path for Bitcoin adoption amid complex regulations.
+Crypto market recovers backed by adoption news from traditional finance converging with macro easing expectations and forced liquidations of leveraged shorts.
 Updates and insights on centralized and decentralized exchanges, liquidity, and innovation.
+A Binance tweet pumped a token 47x, but the real scandal happened exactly 60 seconds earlier.
+Bitcoin loses $85k support as extreme fear grips leveraged traders.
 Stay updated with the latest announcements from leading projects and companies.
+Canton Network partners with BOLTS to reinforce asset security against quantum threats, safeguarding $6 trillion in real-world investments.
+Integrating Fireblocks enhances Bitunix's security with multi-party computation-based custody, reducing unauthorized access risk.
 Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.
+Crypto and precious metals in tax-advantaged accounts with simple pricing.

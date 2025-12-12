@@ -3,9 +3,12 @@ import re
 import time
 import random
 from datetime import datetime
-
 import requests
 from bs4 import BeautifulSoup, Tag
+from dateutil import parser as dateparser
+
+from app.services.news.paths import UNPROCESSED_DIR
+
 
 # -----------------------------
 # Tier S Categories + Limits
@@ -31,8 +34,12 @@ HEADERS = {
     "Referer": "https://www.google.com/",
 }
 
-OUTPUT_FOLDER = "scraped_articles"
+
+OUTPUT_FOLDER = UNPROCESSED_DIR
+
+# Create directories if missing
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+
 
 session = requests.Session()
 session.headers.update(HEADERS)
@@ -69,26 +76,18 @@ def looks_like_title(text: str) -> bool:
 
 
 def safe_get(url: str, max_retries: int = 3, timeout: int = 15):
-    """
-    Safe GET with small retry + backoff.
-    If we see 403/429, stop and return None.
-    """
     for attempt in range(max_retries):
         try:
             resp = session.get(url, timeout=timeout)
         except requests.RequestException:
-            # connection / DNS / timeout errors
             if attempt == max_retries - 1:
                 return None
-            # backoff on next loop
         else:
             if resp.status_code in (403, 429):
-                # forbidden or too many requests: do not hammer
                 return None
             if resp.status_code == 200:
                 return resp
 
-        # backoff before retry
         sleep_sec = (2**attempt) + random.uniform(0.0, 1.0)
         time.sleep(sleep_sec)
 
@@ -96,18 +95,59 @@ def safe_get(url: str, max_retries: int = 3, timeout: int = 15):
 
 
 # -----------------------------
+# Published date extractor
+# -----------------------------
+
+
+def fetch_published_date(soup: BeautifulSoup) -> str:
+    """
+    Extracts the published date from a CryptoSlate article page.
+    Returns ISO-8601 timestamp like '2025-12-08T18:45:00+00:00'
+    """
+
+    # 1. Preferred: <time datetime="...">
+    time_tag = soup.find("time", attrs={"datetime": True})
+    if time_tag and time_tag.get("datetime"):
+        return time_tag["datetime"].strip()
+
+    # 2. Meta tag fallback (rare but valid)
+    meta_time = soup.find("meta", {"property": "article:published_time"})
+    if meta_time and meta_time.get("content"):
+        return meta_time["content"].strip()
+
+    # 3. Fallback: <div class="post-date"> Dec. 8, 2025 at 6:45 pm UTC
+    post_date_div = soup.find("div", class_="post-date")
+    if post_date_div:
+        try:
+            # Extract date + time together
+            raw_text = post_date_div.get_text(" ", strip=True)
+
+            # Example: "Dec. 8, 2025 at 6:45 pm UTC"
+            dt = dateparser.parse(raw_text, fuzzy=True)
+            return dt.isoformat()
+
+        except Exception:
+            pass
+
+    return ""  # No date found
+
+
+# -----------------------------
 # Full article fetch
 # -----------------------------
-def fetch_full_article(url: str) -> str:
-    # simulate human delay before reading a page
+def fetch_full_article(url: str) -> tuple[str, str]:
+    """
+    Returns: (content, published_at)
+    """
     time.sleep(random.uniform(1.5, 3.5))
 
     resp = safe_get(url)
     if resp is None:
-        return "CONTENT_FETCH_FAILED"
+        return "CONTENT_FETCH_FAILED", ""
 
     soup = BeautifulSoup(resp.text, "html.parser")
 
+    # --- extract content ---
     selectors = [
         "div.single__content-wrap p",
         "div.single__content p",
@@ -115,21 +155,26 @@ def fetch_full_article(url: str) -> str:
         "article p",
     ]
 
+    content = "NO_CONTENT_FOUND"
     for sel in selectors:
         paragraphs = soup.select(sel)
         if paragraphs:
-            return "\n".join(p.get_text(strip=True) for p in paragraphs)
+            content = "\n".join(p.get_text(strip=True) for p in paragraphs)
+            break
 
-    return "NO_CONTENT_FOUND"
+    # --- extract published date ---
+    published_at = fetch_published_date(soup)
+
+    return content, published_at
 
 
 # -----------------------------
-# Stable Article Listing Scraper
+# Category listing scraper (SMART VERSION)
+# Picks the most recent articles based on published date
 # -----------------------------
 def scrape_listing(category: str, limit: int):
     url = BASE_URL + category + "/"
 
-    # simulate human delay before hitting a category page
     time.sleep(random.uniform(2.0, 4.0))
 
     resp = safe_get(url)
@@ -151,10 +196,9 @@ def scrape_listing(category: str, limit: int):
     articles = []
     seen_urls = set()
 
+    # Instead of stopping early, collect MANY links
+    # (The listing page may have mixed old/new items)
     for link in heading_tag.find_all_next("a", href=True):
-        if len(articles) >= limit:
-            break
-
         title = link.get_text(strip=True)
         if not looks_like_title(title):
             continue
@@ -171,33 +215,51 @@ def scrape_listing(category: str, limit: int):
 
         seen_urls.add(href)
 
+        # Fetch published date using lightweight request
+        preview_resp = safe_get(href)
+        if preview_resp is None:
+            continue
+
+        preview_soup = BeautifulSoup(preview_resp.text, "html.parser")
+        published_at = fetch_published_date(preview_soup)
+
+        # Ignore items without dates
+        if not published_at:
+            continue
+
         articles.append(
             {
                 "category": category,
                 "title": title,
                 "url": href,
+                "published_at": published_at,
             }
         )
 
-    return articles
+        # Still keep going — we want enough candidates to sort
+
+    # Sort newest → oldest
+    articles.sort(key=lambda x: x["published_at"], reverse=True)
+
+    # Return only the top N most recent
+    return articles[:limit]
 
 
 # -----------------------------
-# MAIN
+# MAIN SCRAPER FUNCTION (for pipeline)
 # -----------------------------
-if __name__ == "__main__":
+def scrape_latest_news() -> int:
+    """
+    Scrapes each category, selects MOST RECENT articles based on published date,
+    saves them into TXT files, and returns the total count.
+    """
     total_saved = 0
 
-    # if you want, you can randomize category order each day:
-    # import random
-    # items = list(CATEGORIES.items())
-    # random.shuffle(items)
-    # for category, limit in items:
     for category, limit in CATEGORIES.items():
         articles = scrape_listing(category, limit)
 
         for art in articles:
-            content = fetch_full_article(art["url"])
+            content, published_at = fetch_full_article(art["url"])
 
             ts = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
             filename = f"{category}__{sanitize_filename(art['title'])}__{ts}.txt"
@@ -207,15 +269,19 @@ if __name__ == "__main__":
                 f.write(f"Category: {art['category']}\n")
                 f.write(f"Title: {art['title']}\n")
                 f.write(f"URL: {art['url']}\n")
+                f.write(f"PublishedAt: {published_at}\n")
                 f.write("\n" + "=" * 80 + "\n\n")
                 f.write(content)
 
             total_saved += 1
-
-            # delay between saving articles (looks like reading time)
             time.sleep(random.uniform(1.0, 2.5))
 
-        # small pause before next category
         time.sleep(random.uniform(2.0, 4.0))
 
-    print(f"\n[DONE] Saved {total_saved} articles into '{OUTPUT_FOLDER}'")
+    return total_saved
+
+
+if __name__ == "__main__":
+    print("Starting manual scraper test...")
+    count = scrape_latest_news()
+    print(f"Scraping finished. Saved {count} articles.")

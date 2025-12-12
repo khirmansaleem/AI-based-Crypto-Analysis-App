@@ -1,0 +1,45 @@
+Category: etf
+Title: ETFHow Bitcoin ETFs lost a whole year of inflows – now down $48B since OctoberAssets have crashed back to 2024 levels, wiping out a year of growth despite massive buy-side pressure.5 days ago
+URL: https://cryptoslate.com/2025-was-officially-a-wipeout-year-for-us-spot-bitcoin-etfs-now-flat-yoy-and-down-48b-since-october/
+PublishedAt: 2025-12-05T15:05:31+00:00
+
+================================================================================
+
+Assets have crashed back to 2024 levels, wiping out a year of growth despite massive buy-side pressure.
+Cover art/illustration via CryptoSlate. Image includes combined content which may include AI-generated content.
+U.S. spotBitcoinETFs gave back nearly all of their 2025 gains after hitting a cycle high in early October, with total net assets sliding to $120.68 billion as of Dec. 4, down $48.86 billion from the Oct. 6 peak.
+The drawdown leaves the category essentially flat year-over-year, sitting just $30 million below the $120.71 billion recorded on Dec. 16, 2024, emphasizing a “wipeout” year in which big price-driven swings failed to translate into sustained net growth for the ETF complex.
+2025 net creations totaled $22.32 billion through Dec. 4, yet the October-to-December price drawdown in bitcoin cut fund assets back to where they were a year ago.
+Since Oct. 6, cumulative net outflows totaled $2.49 billion, a small share of the $48.86 billion in AUM decline, with the residual move attributable to price and unrealized profit and loss.
+That mix frames a year in which issuance demand continued, while BTC’slate-year retracementerased the asset’s gains recorded into early October.
+Second-quarter creations reached $12.80 billion, and third-quarter creations added $8.79 billion, while fourth-quarter creations turned marginally negative through Dec. 4 at $0.20 billion in net redemptions.
+The latest 30-day window showed $4.31 billion ofnet outflows, indicating that Q4 cooled after a strong middle part of the year.
+Even after the fourth-quarter slowdown, cumulative net inflows since launch stood at $57.56 billion, stressing that the structural base of issued shares remains above the level implied by price alone.
+The gap between actual AUM and a flow-only counterfactual since Oct. 6 illustrates the dynamic. Starting from the $169.54 billion peak and mechanically adding only daily creations and redemptions yields a path that would have kept assets near that starting point, while the observed line fell with BTC’s drawdown.
+The difference between those two paths, shown in the “AUM vs flow-only” analysis, quantifies the price or PnL component that drove the decline.
+By the same logic, comparing today’s AUM to the Dec. 16, 2024 anchor with cumulative 2025 inflows isolates the past year’s attribution, where positive flows were offset by negative price marks, leaving assets near flat.
+Investors focused on fund health will parse the spread between flows and performance to assess resilience, liquidity, and potential supply overhang in the primary market.
+The positive 2025 flows mean authorized participants created shares net across the year, so the product set did not suffer broad redemption pressure until late in the year. Price, not redemptions, explains most of the AUM reset from the October high.
+That matters for secondary market conditions because persistent outflows would point to different dealer balance sheet loads and secondary spreads than a price-led move with stable share counts.
+The “nothingburger” year-over-year comparison is specific to the chosen dates, which center on the latest valid row in the dataset and the prior mid-December reference.
+As of Dec. 4, total assets came in only $30 million below the Dec. 16, 2024, reading, a rounding-level change for a product suite that scaled above $120 billion. The interpretation, for readers tracking structural adoption via creations, is that a flat YoY AUM print does not imply negligible demand.
+It reflects that the fourth-quarterprice declinecountered earlier inflows. The datasets and charts included, spanning total AUM, daily flows, and cumulative inflows since launch, align with this decomposition.
+The intra-quarter shift is visible in the daily series. Through the spring and summer, creations clustered on strong price days, then waned into the fall. After Oct. 6, redemptions increased, and the 30-day net flow turned negative in early December.
+The magnitude remained modest relative to the total, at $2.49 billion in net outflows over the period, reinforcing the mechanical point that the AUM slide since the peak was primarily a function of mark-to-market.
+Below are the core figures referenced for clarity.
+For context and reproducibility, AUM corresponds to total net assets in USD, and flows correspond to the daily total BTC inflow.
+The simple attribution of the AUM change from Oct. 6 to Dec. 4 equals net flows over the interval plus a price or PnL term. Using that decomposition, the $48.86 billion decline approximates to $2.49 billion of net outflows and about $46.37 billion of price or PnL.
+The total AUM chart shows the October crest and the subsequent fade into December, the daily flows chart shows Q2 and Q3 strength with Q4 softness, and the cumulative net inflows chart confirms that creations remain positive since launch.
+As framed, the headline takeaway is that 2025 brought positive issuance, while the October retracement in BTC capped the year with assets near last December’s level and well below the early October peak.
+Also known as "Akiba," Liam Wright is a reporter, podcast producer, and Editor-in-Chief at CryptoSlate. He believes that decentralized technology has the potential to make widespread positive change.
+SEC and CFTC actions, state policy, ETFs, startups, and nationwide crypto market trends.
+PNC's agency model with Coinbase spotlights a secure path for Bitcoin adoption amid complex regulations.
+Late-night traders bought odds at 99 cents just before a token-weighted vote overruled the public consensus, exposing a massive flaw in "truth" markets.
+News and analysis on Bitcoin and crypto ETFs shaping institutional access to digital assets.
+Despite retail panic, XRP's on-chain momentum signals growing institutional confidence in the digital asset.
+GLNK emerges as a market test for tokenized finance, as institutional investors grapple with LINK's valuation amidst growing adoption.
+Stay updated with the latest announcements from leading projects and companies.
+Canton Network partners with BOLTS to reinforce asset security against quantum threats, safeguarding $6 trillion in real-world investments.
+Integrating Fireblocks enhances Bitunix's security with multi-party computation-based custody, reducing unauthorized access risk.
+Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.
+Crypto and precious metals in tax-advantaged accounts with simple pricing.

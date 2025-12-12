@@ -1,0 +1,40 @@
+Category: investments
+Title: InvestmentsOpenEden Closes Strategic Funding as RWA Market Surges; Ripple and Anchorage Digital Ventures Among BackersOpenEden expands tokenization-as-a-service platform amid rising demand for compliant on-chain assets.1 week ago
+URL: https://cryptoslate.com/openeden-closes-strategic-funding-as-rwa-market-surges-ripple-and-anchorage-digital-ventures-among-backers/
+PublishedAt: 2025-12-02T12:00:17+00:00
+
+================================================================================
+
+OpenEden expands tokenization-as-a-service platform amid rising demand for compliant on-chain assets.
+Cover art/illustration via CryptoSlate. Image includes combined content which may include AI-generated content.
+OpenEdenhas closed a new strategic investment round backed by some of the most influential names in blockchain and institutional finance, including Ripple, Lightspeed Faction, Gate Ventures, FalconX, Anchorage Digital Ventures, Flowdesk, P2 Ventures, Selini Capital, Kaia Foundation, and Sigma Capital.
+The raise marks a significant milestone for the RWA tokenization platform as institutional appetite for compliant, yield-bearing on-chain assets accelerates globally.
+The investment follows OpenEden’s previous fundraising with Yzi Labs in 2024 and will be used to expand its end-to-end tokenization-as-a-service platform—an infrastructure designed to help institutions, fintechs, and developers issue and manage regulated real-world asset products.
+According to the company, the diverse group of participating investors—spanning blockchain networks, venture firms, trading desks, and institutional infrastructure providers—signals growing conviction in the tokenization thesis, particularly in regulated formats.
+“The growth of OpenEden mirrors the broader transformation we’re seeing in the RWA sector,” said Jeremy Ng, Founder and CEO of OpenEden. “As tokenization scales in adoption, institutions and protocols are seeking trusted, compliant infrastructure to bring traditional assets on-chain. This funding round boosts our capacity to provide regulated, market-ready products that fit both traditional and decentralized finance standards.”
+RWA and Tokenized Treasuries Surge as OpenEden Builds Institutional Momentum
+The announcement comes at a pivotal moment for the RWA landscape. Tokenized U.S. Treasuries and broader RWA markets have both more than doubled year-to-date, reaching all-time highs in adoption and capital inflows.
+OpenEden’s flagship TBILL Fund, one of the earliest tokenized U.S. Treasury products, has become a preferred vehicle for institutions seeking secure, fully-transparent Treasury exposure on-chain. Its peak assets under management have expanded more than tenfold in under two years.
+Earlier this year, the fund achieved an institutional milestone rarely seen in the digital asset sector:an ‘AA+f/S1+’ rating from S&P Global, in addition to its existing ‘A’ credit rating from Moody’s.
+OpenEden’s credibility was further reinforced whenThe Bank of New York, one of the world’s most established financial institutions, was appointed as both custodian and investment manager of the TBILL fund’s underlying assets.
+The institutional momentum behind TBILL has fed directly into the growth of USDO, OpenEden’s regulated yield-bearing stablecoin fully backed by tokenized U.S. Treasuries. USDO is now deployed across major decentralized exchanges, liquidity venues, lending markets, and crypto-fiat gateways.
+Its wrapped form, cUSDO, also attracted significant attention after becoming the first yield-bearing digital asset approved asoff-exchange collateral on Binance, enabling institutional users to earn yield on its custodied assets while retaining full margin trading access.
+With new strategic capital and an expanded network of global investors, OpenEden is now poised to acceleratethe next phase of its roadmap. The company is preparing to launch a tokenized Short-Duration Global High-Yield Bond Fund in collaboration with a major global asset manager, alongside a multi-strategy yield token that blends traditional income sources with DeFi-native yield generation. OpenEden is also developing tokenized structured products that bring familiar TradFi payoff profiles on-chain in a compliant, programmable format.
+Beyond investment products, the company plans to deepen USDO’s integration across both consumer and institutional payment networks worldwide, while expanding its multi-currency stablecoin framework to support new regional markets. In parallel, OpenEden is building a cross-border stablecoin settlement network that connects blockchain rails with existing financial infrastructure.
+Collectively, these initiatives reflect the growing demand for tokenization platforms that deliver institutional-grade safeguards without compromising the transparency and composability that define on-chain finance.
+Several participating investors emphasized that OpenEden’s disciplined regulatory approach and institutional partnerships distinguish it in a crowded RWA market.
+Markus Infanger, SVP of RippleX, said:
+“As regulated financial assets move onchain, institutional investors are looking for products that offer compliance, reliability, and the same controls they expect in traditional markets. OpenEden has shown a disciplined approach to how they operate, and we are pleased to support their growth as assets like tokenized T-bills emerge as practical ways for institutions to begin engaging with onchain markets.”
+Nathan McCauley, Co-Founder and CEO of Anchorage Digital, added:
+“RWAs are gaining strong institutional interest, and OpenEden is building the kind of platform the market needs right now—expanding access to tokenized financial products with a focus on trust and security. We’re excited to support projects like OpenEden that are driving the onchain ecosystem forward and creating pathways for more institutions to participate.”
+As RWA adoption enters a new phase, OpenEden’s regulatory-first, institutional-grade platform positions the company to play a central role in shaping the next generation of tokenized financial markets.
+By combining the oversight of traditional finance with the programmability of blockchain, OpenEden is building the infrastructure needed to bring trillions of real-world assets on-chain, securely and at scale.
+Read this to find out how OpenEden is tokenizing global finance
+Market insights into venture funding, institutional investment, and crypto asset allocation.
+Coinbase folds Vector tech into its app while Tensor Foundation keeps the marketplace and TNSR, stoking questions about pre-announcement buying and tokenholder upside on future launches.
+The Great Wealth Transfer has a new filter test for advisors: if you don’t speak crypto, you don’t get the account.
+Stay updated with the latest announcements from leading projects and companies.
+Canton Network partners with BOLTS to reinforce asset security against quantum threats, safeguarding $6 trillion in real-world investments.
+Integrating Fireblocks enhances Bitunix's security with multi-party computation-based custody, reducing unauthorized access risk.
+Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.
+Crypto and precious metals in tax-advantaged accounts with simple pricing.

@@ -1,0 +1,60 @@
+Category: regulation
+Title: TokensSEC Chair Atkins just confirmed shock $68T timeline for tokenized markets that leaves legacy infrastructure dangerously exposedUS races against global competitors to bridge the $68 trillion market gap with blockchain-driven innovations.2 days ago
+URL: https://cryptoslate.com/sec-chair-atkins-just-confirmed-a-shock-68-trillion-timeline-for-tokenized-markets-that-leaves-legacy-infrastructure-dangerously-exposed/
+PublishedAt: 2025-12-08T14:25:19+00:00
+
+================================================================================
+
+US races against global competitors to bridge the $68 trillion market gap with blockchain-driven innovations.
+Cover art/illustration via CryptoSlate. Image includes combined content which may include AI-generated content.
+The US equity market is valued at roughly $68 trillion, yet only about $670 million of that value currently exists on-chain in tokenized form.
+The scale of that gap has become a focal point for policymakers and market participants as regulators signal a shift toward integrating blockchain-based settlement into the core of American financial infrastructure.
+Last week,Paul Atkins, the chairman of the US Securities and Exchange Commission (SEC), said that tokenization could become a central feature of US markets within “a couple of years,” describing the combination of advances in electronic trading and distributed ledger technology as the most significant transformation in decades.
+His comments represent a marked departure from the agency’s earlier posture and suggest a faster-than-expected modernization cycle across the US market plumbing.
+BitwiseCIO Matt Hougancontextualizedthe magnitude of the transition by comparing the current tokenized equity footprint of $670 million against the broader $68 trillion market.
+The numbers illustrate how early the process remains and highlight the distance between the existing system and a potential future in which securities regularly move across blockchain rails.
+While the comparison does not imply a specific timeline, it frames the structural challenge that would accompany even incremental adoption of tokenized settlement.
+In hisinterview, Atkins argued that tokenization could improve predictability and reduce risk by narrowing, or eliminating, the gap between trade execution, payment, and final settlement.
+The potential for intraday or real-time settlement is one of the key reasons regulators are reassessing how digital assets fit within existing rules.
+Atkins also acknowledged that the SEC has historically lagged behind innovation and at times resisted developments that later proved durable.
+However, the agency has recently moved in a different direction. Several investigations have been dropped, digital-asset roundtables have resumed, andCommissioner Hester Peircedescribed the new approach as “quick, careful, creative, and workable.”
+Notably, the SEC is developing a “token taxonomy” rooted in the Howey test but designed to account for how networks mature, distribute control, and eventually operate without an identifiable issuer. The taxonomy is intended to define which digital assets fall within the SEC’s jurisdiction and which do not.
+The shift is partly motivated by a desire to bring tokenization activity onshore. The 2022collapse of FTXand the uninterrupted operation of LedgerX under CFTC oversight are evidence that US regulatory structures can protect customer assets when applied to digital-native systems.
+As a result, the financial regulatory chief sees an opportunity to steer tokenized settlement toward supervised venues rather than offshore entities.
+Despite the new direction, several obstacles remain.
+Commissioner Caroline Crenshawhas noted that some tokenized equities marketed as “wrapped securities” may not reflect the same economic rights, liquidity conditions, or protections as the underlying instruments.
+She said these products are not always one-to-one representations and may complicate investor expectations, suggesting that new rules may be necessary.
+Industry tensions were visible during the SEC Investor Advisory Committee meeting, where representativesfrom Citadel Securities,Coinbase, and others debated how tokenization should interact with decentralized finance.
+Citadel urged the SEC to ensure that all intermediaries involved in tokenized securities trading, including decentralized protocols, are identified and subject to existing definitions of exchanges and broker-dealers.
+On the other hand,Coinbaseargued that imposing broker-level obligations on decentralized systems would be operationally incompatible and could introduce new risks by forcing protocols to take custody or assume control.
+The differences reflect competing visions for how the infrastructure of tokenized markets should be constructed.
+One model aligns with traditional intermediated systems; the other relies on programmatic, non-custodial protocols. The SEC will need to evaluate whether these frameworks can coexist or whether tokenized securities require a more prescriptive structure.
+Notably,Nasdaq’s pending rule changerequest adds urgency. The exchange has proposed keeping front-end trading unchanged while allowing tokenization at the post-trade level via the Depository Trust & Clearing Corporation.
+The SEC must respond this month, and the decision will likely influence how other market participants design their tokenization strategies.
+Meanwhile, one practical obstacle to broad tokenization is the scale of US market activity.
+For context, Nasdaq processes approximately 2,920 trades per second and $463 billion in daily notional value. In comparison, public blockchains do not yet match that performance or reliability, even though they can improve post-trade workflows.
+So, bringing a significant share of US securities onto blockchain rails would require substantial upgrades across clearinghouses, custodians, broker-dealers, and digital-asset networks.
+Considering this, Atkins’ comments have been interpreted as a signal that regulatory hesitancy is no longer the primary constraint.
+Instead, market participants now face the task of aligning technical capacity, operational risk controls, and compliance frameworks with the settlement models regulators expect to consider.
+If tokenization becomes a formal component of the US market structure, institutions will need systems capable of handling digital issuance, on-chain reconciliation, and regulatory reporting at an industrial scale.
+RWA.xyz data shows that the total value ofreal-world assets on-chainhas grown to about $35.8 billion, roughly double its level at the end of 2024.
+While small relative to the broader financial system, the growth indicates rising comfort with on-chain representations of traditional assets, particularly treasuries, cash instruments, credit, and other low-volatility exposures.
+The expansion provides early evidence that tokenized markets can attract regulated institutions once legal frameworks stabilize.
+Other jurisdictions have moved faster than the United States in adopting tokenized market infrastructure.Singapore and Hong Konghave launched tokenized bond programs, digital fund structures, and bank-issued blockchain settlement systems.
+As a result, US regulators are aware that unclear rules could push tokenization offshore, especially if synthetic or wrapped products remain in legal uncertainty.
+Atkins positioned the United States as aiming to regain leadership in this area, arguing that clear rules will allow market participants to innovate domestically.
+Whether the US closes the tokenization gap will depend on how quickly the SEC finalizes its taxonomy, how it resolves conflicts between TradFi and DeFi, and how infrastructure providers respond to the operational demands of blockchain settlement.
+If compliant pathways develop as Atkins outlined, the current $670 million tokenized footprint could expand meaningfully over the next several years.
+However, if rules remain unsettled, capital may continue to flow to jurisdictions with more mature frameworks.
+Oluwapelumi values Bitcoin's potential. He imparts insights on a range of topics like DeFi, hacks, mining and culture, underlining transformative power.
+SEC and CFTC actions, state policy, ETFs, startups, and nationwide crypto market trends.
+PNC's agency model with Coinbase spotlights a secure path for Bitcoin adoption amid complex regulations.
+Late-night traders bought odds at 99 cents just before a token-weighted vote overruled the public consensus, exposing a massive flaw in "truth" markets.
+Updates and insights on new tokens, utility models, and digital asset ecosystems.
+Ripple's advancements position XRP as more than a token, inching towards a role in settlement infrastructure.
+Tension mounts as Zcash's traceability claims coincide with federal asset disclosure and regulatory discussions.
+Stay updated with the latest announcements from leading projects and companies.
+Canton Network partners with BOLTS to reinforce asset security against quantum threats, safeguarding $6 trillion in real-world investments.
+Integrating Fireblocks enhances Bitunix's security with multi-party computation-based custody, reducing unauthorized access risk.
+Our writers' opinions are solely their own and do not reflect the opinion of CryptoSlate. None of the information you read on CryptoSlate should be taken as investment advice, nor does CryptoSlate endorse any project that may be mentioned or linked to in this article. Buying and trading cryptocurrencies should be considered a high-risk activity. Please do your own due diligence before taking any action related to content within this article. Finally, CryptoSlate takes no responsibility should you lose money trading cryptocurrencies. For more information, see our companydisclaimers.
+Crypto and precious metals in tax-advantaged accounts with simple pricing.

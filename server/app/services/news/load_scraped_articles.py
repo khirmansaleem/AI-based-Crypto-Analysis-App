@@ -1,7 +1,8 @@
 import os
 from app.services.news.file_parser import parse_article_file
+from app.services.news.paths import UNPROCESSED_DIR
 
-SCRAPED_DIR = "app/scrapers/cryptoslate_scraper/scraped_articles"
+SCRAPED_DIR = UNPROCESSED_DIR
 
 
 def load_all_scraped_articles():
