@@ -2,9 +2,7 @@ from asyncio.log import logger
 from app.models.news.news_article import NewsArticle
 from app.models.news.ai_analysis import AiAnalysis
 from app.services.search.search_service import search_similar_articles
-
 import datetime
-
 from app.services.deepseek_client.deepseek_client import analyze_article_with_deepseek
 
 

@@ -1,7 +1,6 @@
 import os
 
 BASE_SCRAPER_DIR = "app/scrapers/cryptoslate_scraper/scraped_articles"
-
 UNPROCESSED_DIR = os.path.join(BASE_SCRAPER_DIR, "unprocessed")
 PROCESSED_DIR = os.path.join(BASE_SCRAPER_DIR, "processed")
 FAILED_DIR = os.path.join(BASE_SCRAPER_DIR, "failed")

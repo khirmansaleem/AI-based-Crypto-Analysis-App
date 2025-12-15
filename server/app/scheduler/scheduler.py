@@ -18,7 +18,7 @@ def start_scheduler():
 
     scheduler.remove_all_jobs()
 
-    trigger = CronTrigger(hour=4, minute=28)
+    trigger = CronTrigger(hour=3, minute=14)
 
     scheduler.add_job(
         process_daily_news,  # async function ✔
