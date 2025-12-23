@@ -8,6 +8,7 @@ from app.routes.cleanup_stats import router as cleanup_router
 from app.routes.cleanup_old_news import router as cleanup_old_news_router
 from app.routes.news_analysis_route import router as news_analysis_router
 from app.scheduler.scheduler import start_scheduler, stop_scheduler
+from app.routes.news_feed_route import router as news_feed_router
 
 
 @asynccontextmanager
@@ -31,3 +32,4 @@ app.include_router(search_router.router)
 app.include_router(cleanup_old_news_router)
 app.include_router(cleanup_router)
 app.include_router(news_analysis_router, prefix="/api")
+app.include_router(news_feed_router, prefix="/api")

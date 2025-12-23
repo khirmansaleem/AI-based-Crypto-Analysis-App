@@ -1,6 +1,5 @@
 import json
 import os
-import re
 from typing import List
 from dotenv import load_dotenv
 from openai import OpenAI
