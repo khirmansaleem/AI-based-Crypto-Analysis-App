@@ -2,10 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.news_analysis_app">
 
+    <!-- ✅ REQUIRED: Internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:label="Crypto News AI"
         android:icon="@mipmap/ic_launcher"
-        tools:replace="android:label"> <!-- ✅ This resolves the conflict -->
+        android:usesCleartextTraffic="true"
+        tools:replace="android:label">
 
         <activity
             android:name=".MainActivity"
@@ -38,4 +42,6 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+
 </manifest>
+

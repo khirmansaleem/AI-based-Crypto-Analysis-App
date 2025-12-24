@@ -65,40 +65,6 @@ class HomeScreen extends ConsumerWidget {
       body: Column(
         children: [
           const SizedBox(height: 24),
-
-          // 🔍 Search / Filter / Sort (UI stays same)
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: Container(
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF2A2A2A),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: TextField(
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        hintText: 'Search news...',
-                        hintStyle: const TextStyle(color: Colors.grey),
-                        suffixIcon: const Icon(Icons.search, color: Colors.white70, size: 20),
-                        border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                _iconButton(Icons.filter_list),
-                const SizedBox(width: 8),
-                _iconButton(Icons.sort),
-              ],
-            ),
-          ),
-
           const SizedBox(height: 24),
 
           // 📰 News List

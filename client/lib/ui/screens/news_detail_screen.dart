@@ -41,7 +41,7 @@ class NewsDetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            // 📰 Title
+            // 📰 TITLE
             Center(
               child: Text(
                 news.title,
@@ -57,7 +57,7 @@ class NewsDetailScreen extends StatelessWidget {
 
             const SizedBox(height: 10),
 
-            // 🕒 Meta
+            // 🕒 META
             Center(
               child: Text(
                 'AI-analyzed crypto news',
@@ -70,7 +70,7 @@ class NewsDetailScreen extends StatelessWidget {
 
             const SizedBox(height: 32),
 
-            // 📄 Summary Header
+            // 📄 SUMMARY HEADER
             _sectionHeader(
               icon: Icons.article_outlined,
               title: 'News Summary',
@@ -80,7 +80,7 @@ class NewsDetailScreen extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            // 📄 Summary Text (REAL DATA)
+            // 📄 SUMMARY TEXT
             Text(
               news.summary,
               style: theme.textTheme.bodyLarge?.copyWith(
@@ -94,7 +94,7 @@ class NewsDetailScreen extends StatelessWidget {
             const Divider(color: Colors.white12),
             const SizedBox(height: 24),
 
-            // 🤖 AI Analysis Header
+            // 🤖 AI ANALYSIS HEADER
             _sectionHeader(
               icon: Icons.smart_toy_outlined,
               title: 'AI Market Analysis',
@@ -104,7 +104,7 @@ class NewsDetailScreen extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            // 🤖 AI Prediction Card (RAW AI TEXT)
+            // 🤖 AI ANALYSIS CARD (FORMATTED TEXT)
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16),
@@ -121,7 +121,7 @@ class NewsDetailScreen extends StatelessWidget {
                 ],
               ),
               child: SelectableText(
-                news.prediction,
+                news.predictionText, // ✅ FIXED
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontSize: 15.5,
                   height: 1.65,
@@ -132,7 +132,7 @@ class NewsDetailScreen extends StatelessWidget {
 
             const SizedBox(height: 32),
 
-            // 🔘 Actions
+            // 🔘 ACTIONS
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -141,7 +141,7 @@ class NewsDetailScreen extends StatelessWidget {
                   tooltip: 'Copy AI analysis',
                   onPressed: () {
                     Clipboard.setData(
-                      ClipboardData(text: news.prediction),
+                      ClipboardData(text: news.predictionText),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('AI analysis copied')),
@@ -152,7 +152,7 @@ class NewsDetailScreen extends StatelessWidget {
                   icon: const Icon(Icons.share, color: Colors.white70),
                   tooltip: 'Share',
                   onPressed: () {
-                    // Share.share('${news.title}\n\n${news.prediction}');
+                    // Share.share('${news.title}\n\n${news.predictionText}');
                   },
                 ),
                 IconButton(
@@ -170,7 +170,7 @@ class NewsDetailScreen extends StatelessWidget {
     );
   }
 
-  // 🔹 Section Header Widget
+  // 🔹 SECTION HEADER
   Widget _sectionHeader({
     required IconData icon,
     required String title,

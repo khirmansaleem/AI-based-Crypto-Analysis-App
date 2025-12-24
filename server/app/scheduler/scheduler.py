@@ -9,7 +9,7 @@ from apscheduler.triggers.cron import CronTrigger
 logger = logging.getLogger(__name__)
 
 # ✅ Explicit UTC scheduler
-scheduler = AsyncIOScheduler(timezone=UTC)
+scheduler = AsyncIOScheduler()
 
 
 def start_scheduler():
@@ -22,9 +22,9 @@ def start_scheduler():
 
     # ✅ Daily at 03:30 UTC
     trigger = CronTrigger(
-        hour=3,
+        hour=23,
         minute=30,
-        timezone=UTC,
+        # timezone=UTC+5,
     )
 
     scheduler.add_job(

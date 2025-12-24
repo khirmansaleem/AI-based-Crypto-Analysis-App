@@ -124,16 +124,12 @@ async def run_deepseek(prompt: str) -> dict:
             temperature=0.3,
         )
 
-        # 🔑 THIS IS THE KEY LINE
-        full_response_text = json.dumps(
-            response.model_dump(),
-            ensure_ascii=False,
-            indent=2,
-        )
+        # ✅ Extract ONLY the human-readable analysis
+        analysis_text = response.choices[0].message.content.strip()
 
         return {
-            "status": "RAW",
-            "prediction": full_response_text,
+            "status": "OK",
+            "prediction": analysis_text,  # 🔥 CLEAN TEXT ONLY
         }
 
     except Exception as e:

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_analysis_app/data/models/news_model.dart';
+import 'package:intl/intl.dart';
+
+
 
 class NewsCard extends StatelessWidget {
   final NewsModel news;
@@ -10,10 +13,13 @@ class NewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primary = Colors.lightGreenAccent.shade200;
-    final mutedAccent = Colors.lightGreenAccent.shade100;
-    final blueAccent = Colors.white;
-    final cardBg = const Color(0xFF1E1E1E); // Deeper tone
+    final textPrimary = Colors.white.withOpacity(0.95);
+    final textSecondary = Colors.white70;
+    final cardBg = const Color(0xFF1E1E1E);
     final borderHighlight = primary.withOpacity(0.4);
+
+    final formattedDate =
+    DateFormat('dd MMM yyyy').format(news.publishedAt);
 
     return InkWell(
       onTap: onTap,
@@ -35,23 +41,28 @@ class NewsCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Title + AI Badge
+
+            /// 📰 TITLE + AI BADGE
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: Text(
                     news.title,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Colors.white.withOpacity(0.95),
+                      color: textPrimary,
                       fontWeight: FontWeight.w700,
                       fontSize: 17,
+                      height: 1.3,
                     ),
                   ),
                 ),
                 const SizedBox(width: 8),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
                     border: Border.all(color: borderHighlight),
                     borderRadius: BorderRadius.circular(4),
@@ -67,31 +78,43 @@ class NewsCard extends StatelessWidget {
                 ),
               ],
             ),
+
             const SizedBox(height: 10),
 
-            // Summary
+            /// 📄 SUMMARY (max 3 lines)
             Text(
               news.summary,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                color: Colors.white70,
+                color: textSecondary,
                 fontSize: 14,
-                height: 1.5,
+                height: 1.45,
               ),
             ),
-            const SizedBox(height: 14),
 
-            // Prediction
+            const SizedBox(height: 12),
+
+            /// 🤖 AI ANALYSIS PREVIEW (2 bullets max, trimmed in model)
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.trending_up, color: blueAccent, size: 18),
+                Icon(
+                  Icons.smart_toy_outlined,
+                  color: primary.withOpacity(0.9),
+                  size: 18,
+                ),
                 const SizedBox(width: 6),
                 Expanded(
                   child: Text(
-                    news.prediction,
+                    news.analysisSummaryForCard.isNotEmpty
+                        ? news.analysisSummaryForCard
+                        : 'AI analysis available',
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontStyle: FontStyle.italic,
-                      color: blueAccent,
+                      color: primary,
                       fontSize: 13.5,
                       height: 1.4,
                     ),
@@ -99,36 +122,18 @@ class NewsCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 12),
 
-            // Confidence Bar
-            Row(
-              children: [
-                Text('Confidence',
-                    style: TextStyle(color: Colors.grey[400], fontSize: 12)),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(4), // Rounded corners
-                    child: LinearProgressIndicator(
-                      value: 0.75,
-                      minHeight: 5,
-                      backgroundColor: Colors.white12,
-                      valueColor: AlwaysStoppedAnimation<Color>(mutedAccent),
-                    ),
-                  ),
-                ),
+            const SizedBox(height: 10),
 
-              ],
-            ),
-            const SizedBox(height: 8),
-
-            // Timestamp
+            /// 🕒 PUBLISHED DATE
             Align(
               alignment: Alignment.bottomRight,
               child: Text(
-                '2h ago',
-                style: TextStyle(color: Colors.grey[600], fontSize: 11),
+                formattedDate,
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 11,
+                ),
               ),
             ),
           ],
@@ -137,3 +142,5 @@ class NewsCard extends StatelessWidget {
     );
   }
 }
+
+
