@@ -29,10 +29,11 @@ def start_scheduler():
     scheduler.remove_all_jobs()
 
     # ✅ Daily at 12:50 AM UTC
-    trigger = CronTrigger(
-        hour=0,
-        minute=50,
-    )
+    # trigger = CronTrigger(
+    #     hour=0,
+    #    minute=50,
+    # )
+    trigger = CronTrigger(minute="*/1")
 
     scheduler.add_job(
         _run_daily_news_pipeline,
