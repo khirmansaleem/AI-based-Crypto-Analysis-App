@@ -1,4 +1,3 @@
-from datetime import UTC
 from apscheduler.triggers.cron import CronTrigger
 from app.services.pipeline.daily_pipeline import process_daily_news
 import logging
@@ -20,13 +19,11 @@ def start_scheduler():
 
     scheduler.remove_all_jobs()
 
-    # ✅ Daily at 03:30 UTC
+    # ✅ Daily at 12:30 AM
     trigger = CronTrigger(
-        hour=23,
+        hour=0,
         minute=30,
-        # timezone=UTC+5,
     )
-
     scheduler.add_job(
         process_daily_news,  # async function ✔
         trigger=trigger,

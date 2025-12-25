@@ -7,21 +7,12 @@ from app.routes import search as search_router
 from app.routes.cleanup_stats import router as cleanup_router
 from app.routes.cleanup_old_news import router as cleanup_old_news_router
 from app.routes.news_analysis_route import router as news_analysis_router
-from app.scheduler.scheduler import start_scheduler, stop_scheduler
 from app.routes.news_feed_route import router as news_feed_router
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # --- Startup ---
-    start_scheduler()
-    print("Scheduler started (lifespan)")
-
-    yield  # FastAPI now handles requests
-
-    # --- Shutdown ---
-    stop_scheduler()
-    print("Scheduler stopped (lifespan)")
+    yield
 
 
 app = FastAPI(title="Crypto News AI Backend", version="1.0.0", lifespan=lifespan)
