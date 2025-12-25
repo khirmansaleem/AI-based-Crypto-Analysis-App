@@ -22,7 +22,7 @@ def start_scheduler():
     # ✅ Daily at 12:30 AM
     trigger = CronTrigger(
         hour=0,
-        minute=30,
+        minute=50,
     )
     scheduler.add_job(
         process_daily_news,  # async function ✔
