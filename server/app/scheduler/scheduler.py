@@ -6,9 +6,10 @@ from apscheduler.triggers.cron import CronTrigger
 
 from app.services.pipeline.daily_pipeline import process_daily_news
 
+
 logger = logging.getLogger(__name__)
 
-# ✅ Blocking scheduler (systemd-safe)
+# ✅ Blocking scheduler (systemd-safe, UTC-based)
 scheduler = BlockingScheduler(timezone="UTC")
 
 
@@ -28,7 +29,8 @@ def start_scheduler():
 
     scheduler.remove_all_jobs()
 
-    trigger = CronTrigger(hour=23, minute=10)  # 00:50 UTC daily
+    # 23:45 UTC = 04:45 AM PKT
+    trigger = CronTrigger(hour=23, minute=45)
 
     scheduler.add_job(
         _run_daily_news_pipeline,
@@ -41,7 +43,7 @@ def start_scheduler():
     )
 
     scheduler.start()
-    logger.info("🕒 APScheduler started — daily job at 00:50 UTC")
+    logger.info("🕒 APScheduler started — daily job at 23:45 UTC (04:45 PKT)")
 
 
 def stop_scheduler():
