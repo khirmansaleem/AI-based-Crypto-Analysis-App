@@ -1,46 +1,56 @@
-from apscheduler.triggers.cron import CronTrigger
-from app.services.pipeline.daily_pipeline import process_daily_news
+import asyncio
 import logging
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
+
+from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 
+from app.services.pipeline.daily_pipeline import process_daily_news
 
 logger = logging.getLogger(__name__)
 
-# ✅ Explicit UTC scheduler
-scheduler = AsyncIOScheduler()
+# ✅ Blocking scheduler (systemd-safe)
+scheduler = BlockingScheduler(timezone="UTC")
+
+
+def _run_daily_news_pipeline():
+    """
+    Wrapper to run async pipeline inside BlockingScheduler.
+    """
+    logger.info("🚀 Starting daily news pipeline")
+    asyncio.run(process_daily_news())
+    logger.info("✅ Daily news pipeline completed")
 
 
 def start_scheduler():
     """
-    Start the APScheduler with a daily cron job (UTC).
-    Runs after FastAPI starts.
+    Start APScheduler with daily cron job (UTC).
     """
 
     scheduler.remove_all_jobs()
 
-    # ✅ Daily at 12:30 AM
+    # ✅ Daily at 12:50 AM UTC
     trigger = CronTrigger(
         hour=0,
         minute=50,
     )
+
     scheduler.add_job(
-        process_daily_news,  # async function ✔
+        _run_daily_news_pipeline,
         trigger=trigger,
         id="daily_news_pipeline",
         replace_existing=True,
         max_instances=1,
         misfire_grace_time=3600,  # 1 hour
-        coalesce=True,  # combine missed runs
+        coalesce=True,
     )
 
     scheduler.start()
-    logger.info("🕒 APScheduler started — daily job at 03:30 UTC")
+    logger.info("🕒 APScheduler started — daily job at 00:50 UTC")
 
 
 def stop_scheduler():
     """
-    Stop scheduler safely when FastAPI shuts down.
+    Stop scheduler safely.
     """
     try:
         scheduler.shutdown(wait=False)
