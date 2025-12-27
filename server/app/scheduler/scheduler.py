@@ -7,6 +7,16 @@ from apscheduler.triggers.cron import CronTrigger
 from app.services.pipeline.daily_pipeline import process_daily_news
 
 
+import asyncio
+import logging
+from datetime import datetime, timedelta
+
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+# from apscheduler.triggers.cron import CronTrigger
+from apscheduler.triggers.date import DateTrigger
+from app.services.pipeline.daily_pipeline import process_daily_news
+
 logger = logging.getLogger(__name__)
 
 # ✅ Blocking scheduler (systemd-safe, UTC-based)
@@ -24,25 +34,42 @@ def _run_daily_news_pipeline():
 
 def start_scheduler():
     """
-    Start APScheduler with daily cron job (UTC).
+    Start APScheduler.
+    TEMPORARILY configured to run ONCE for testing.
     """
 
     scheduler.remove_all_jobs()
+
+    # =====================================================
+    # 🚫 DAILY CRON (TEMPORARILY DISABLED FOR TESTING)
+    # =====================================================
+    # trigger = CronTrigger(hour=22, minute=40)
     #
-    trigger = CronTrigger(hour=22, minute=40)
+    # scheduler.add_job(
+    #     _run_daily_news_pipeline,
+    #     trigger=trigger,
+    #     id="daily_news_pipeline",
+    #     replace_existing=True,
+    #     max_instances=1,
+    #     misfire_grace_time=3600,  # 1 hour
+    #     coalesce=True,
+    # )
+
+    # =====================================================
+    # 🧪 ONE-TIME TEST RUN (runs once after 1 minute)
+    # =====================================================
+    test_trigger = DateTrigger(run_date=datetime.utcnow() + timedelta(minutes=1))
 
     scheduler.add_job(
         _run_daily_news_pipeline,
-        trigger=trigger,
-        id="daily_news_pipeline",
+        trigger=test_trigger,
+        id="daily_news_pipeline_test_once",
         replace_existing=True,
         max_instances=1,
-        misfire_grace_time=3600,  # 1 hour
-        coalesce=True,
     )
 
     scheduler.start()
-    logger.info("🕒 APScheduler started — daily job at 23:45 UTC (04:45 PKT)")
+    logger.info("🧪 APScheduler started — one-time test job scheduled (UTC)")
 
 
 def stop_scheduler():
