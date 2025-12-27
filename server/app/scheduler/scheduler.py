@@ -29,7 +29,7 @@ def start_scheduler():
 
     scheduler.remove_all_jobs()
 
-    trigger = CronTrigger(hour=21, minute=0)
+    trigger = CronTrigger(hour=20, minute=25)
 
     scheduler.add_job(
         _run_daily_news_pipeline,
