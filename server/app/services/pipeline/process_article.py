@@ -4,27 +4,38 @@ from app.models.news.ai_analysis import AiAnalysis
 from app.services.search.search_service import search_similar_articles
 import datetime
 from app.services.deepseek_client.deepseek_client import analyze_article_with_deepseek
+from app.database.database import SessionLocal
 
 
-async def process_article(db, article_id: int):
-    article = db.query(NewsArticle).filter_by(id=article_id).first()
+async def process_article(article_id: int):
+    # ---- STEP 0: Load article (short-lived session)
+    with SessionLocal() as db:
+        article = db.query(NewsArticle).filter_by(id=article_id).first()
+        if not article:
+            return
 
-    if not article:
-        return
-
-    # STEP 1 — Get references using semantic search
-    references = await search_similar_articles(
-        db,
-        query_text=article.content,
-        category=article.category,
-        current_id=article.id,
-    )
-
-    # STEP 2 — DeepSeek analysis (RAW)
-    output = await analyze_article_with_deepseek(
-        article={
+        article_data = {
+            "id": article.id,
             "title": article.title,
             "summary": article.summary,
+            "content": article.content,
+            "category": article.category,
+        }
+
+    # ---- STEP 1: Semantic search (READ-ONLY session)
+    with SessionLocal() as db:
+        references = await search_similar_articles(
+            db,
+            query_text=article_data["content"],
+            category=article_data["category"],
+            current_id=article_data["id"],
+        )
+
+    # ---- STEP 2: DeepSeek (NO DB session at all)
+    output = await analyze_article_with_deepseek(
+        article={
+            "title": article_data["title"],
+            "summary": article_data["summary"],
         },
         similar_articles=references,
     )
@@ -32,27 +43,33 @@ async def process_article(db, article_id: int):
     logger.warning(f"[DeepSeek OUTPUT] -> {output}")
     logger.warning(f"[DeepSeek TYPE] -> {type(output)}")
 
-    # STEP 3 — Persist RAW prediction (always)
-    prediction_text = ""
+    # ---- STEP 3: Persist analysis + mark analyzed (WRITE session)
+    with SessionLocal() as db:
+        try:
+            prediction_text = (
+                output.get("prediction", "")
+                if isinstance(output, dict)
+                else str(output)
+            )
 
-    if isinstance(output, dict):
-        prediction_text = output.get("prediction", "")
-    elif isinstance(output, str):
-        prediction_text = output
-    else:
-        prediction_text = str(output)
+            analysis = AiAnalysis(
+                article_id=article_data["id"],
+                prediction=prediction_text,
+                created_at=datetime.datetime.utcnow(),
+            )
 
-    analysis = AiAnalysis(
-        article_id=article.id,
-        prediction=prediction_text,
-        created_at=datetime.datetime.utcnow(),
-    )
+            db.add(analysis)
 
-    db.add(analysis)
-    logger.info(f"💾 Saved RAW analysis for article ID={article.id}")
+            article = db.query(NewsArticle).get(article_data["id"])
+            article.is_analyzed = True
 
-    # STEP 4 — Mark article as processed
-    article.is_analyzed = True
-    db.commit()
+            db.commit()
 
-    logger.info(f"✅ Article ID={article.id} marked as analyzed")
+            logger.info(f"✅ Article ID={article_data['id']} marked as analyzed")
+
+        except Exception as e:
+            db.rollback()
+            logger.error(
+                f"❌ Failed processing article ID={article_data['id']}: {e}",
+                exc_info=True,
+            )

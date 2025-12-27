@@ -28,8 +28,8 @@ def start_scheduler():
     """
 
     scheduler.remove_all_jobs()
-    # Schedule daily job at 20:25 UTC (01:25 PKT)
-    trigger = CronTrigger(hour=20, minute=25)
+    #
+    trigger = CronTrigger(hour=22, minute=40)
 
     scheduler.add_job(
         _run_daily_news_pipeline,
