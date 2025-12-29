@@ -24,12 +24,12 @@ from app.services.news.paths import UNPROCESSED_DIR
 
 
 CATEGORIES = {
-    "regulation": 1,
-    "etf": 1,
+    "regulation": 3,
+    "etf": 2,
     "macro": 1,
-    "exchanges": 0,
-    "investments": 0,
-    "stablecoins": 0,
+    "exchanges": 3,
+    "investments": 2,
+    "stablecoins": 2,
 }
 
 BASE_URL = "https://cryptoslate.com/"
