@@ -5,6 +5,8 @@ from sqlalchemy import text, bindparam, Integer
 from sqlalchemy.orm import Session
 from pgvector.sqlalchemy import Vector
 
+from app.database.database import SessionLocal
+
 # ---------------------------------------------------------
 # CONFIGURATION
 # ---------------------------------------------------------
@@ -109,25 +111,20 @@ def _row_to_article_summary(row):
 
 
 def search_similar_articles(
-    db: Session,
-    query_text: str,
-    category: str,
-    current_id: int,
+    query_text: str, category: str, current_id: int
 ) -> List[dict]:
 
-    # 1. Compute dynamic recency window
     max_days = CATEGORY_RECENCY_DAYS.get(category, DEFAULT_RECENCY)
-
-    # 2. Generate embedding
     query_vector = get_embedding(query_text)
 
-    # 3. Fetch candidates (excluding current article)
-    initial_rows = _run_vector_query(db, query_vector, max_days, MAX_FETCH, current_id)
+    with SessionLocal() as db:
+        initial_rows = _run_vector_query(
+            db, query_vector, max_days, MAX_FETCH, current_id
+        )
 
     primary = []
     fallback = []
 
-    # 4. Threshold filtering
     for row in initial_rows:
         sim = float(row["similarity_score"])
         if sim >= PRIMARY_THRESHOLD:
@@ -135,19 +132,13 @@ def search_similar_articles(
         elif sim >= FALLBACK_THRESHOLD:
             fallback.append(row)
 
-    # 5. Primary results
     if primary:
-        top_rows = primary[:MAX_CONTEXT_RESULTS]
-        return [_row_to_article_summary(r) for r in top_rows]
+        return [_row_to_article_summary(r) for r in primary[:MAX_CONTEXT_RESULTS]]
 
-    # 6. Fallback results
     if fallback:
-        top_rows = fallback[:MAX_CONTEXT_RESULTS]
-        return [_row_to_article_summary(r) for r in top_rows]
+        return [_row_to_article_summary(r) for r in fallback[:MAX_CONTEXT_RESULTS]]
 
-    # 7. Final fallback
-    top_rows = initial_rows[:MAX_CONTEXT_RESULTS]
-    return [_row_to_article_summary(r) for r in top_rows]
+    return [_row_to_article_summary(r) for r in initial_rows[:MAX_CONTEXT_RESULTS]]
 
 
 # ---------------------------------------------------------
