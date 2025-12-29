@@ -6,12 +6,12 @@ from app.services.news.load_scraped_articles import load_all_scraped_articles
 from app.services.news.paths import FAILED_DIR
 
 
-async def import_scraped_articles_core(db: Session):
+def import_scraped_articles_core(db: Session):
     articles = load_all_scraped_articles()
     response = []
 
     for art in articles:
-        result = await insert_article(
+        result = insert_article(
             db=db,
             title=art["title"],
             url=art["url"],

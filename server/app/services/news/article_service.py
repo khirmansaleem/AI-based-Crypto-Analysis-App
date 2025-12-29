@@ -14,7 +14,7 @@ def compute_hash(title: str, url: str, content: str) -> str:
     return hashlib.sha256(combined.encode("utf-8")).hexdigest()
 
 
-async def insert_article(
+def insert_article(
     db: Session,
     title: str,
     url: str,
@@ -45,7 +45,7 @@ async def insert_article(
                 pub_datetime = None  # failsafe
 
         # --- Generate LLM summary (async) ---
-        content_summary = await generate_summary(content, pub_datetime)
+        content_summary = generate_summary(content, pub_datetime)
         summary = f"{title}. {content_summary}"
 
         # --- Create new DB row ---

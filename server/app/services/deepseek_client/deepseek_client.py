@@ -109,7 +109,7 @@ END.
 # ---------------------------------------------------------
 # Run DeepSeek
 # ---------------------------------------------------------
-async def run_deepseek(prompt: str) -> dict:
+def run_deepseek(prompt: str) -> dict:
     try:
         response = client.chat.completions.create(
             model=DEEPSEEK_MODEL,
@@ -142,7 +142,7 @@ async def run_deepseek(prompt: str) -> dict:
 # ---------------------------------------------------------
 # Full pipeline
 # ---------------------------------------------------------
-async def analyze_article_with_deepseek(
+def analyze_article_with_deepseek(
     article: dict,
     similar_articles: List[dict],
 ):
@@ -152,5 +152,5 @@ async def analyze_article_with_deepseek(
         reference_articles=similar_articles,
     )
 
-    ai_output = await run_deepseek(final_prompt)
+    ai_output = run_deepseek(final_prompt)
     return ai_output

@@ -10,7 +10,7 @@ and extracts only the core facts needed for downstream crypto impact analysis.
 """
 
 
-async def summarize_with_deepseek(text: str, published_at: str = None) -> str:
+def summarize_with_deepseek(text: str, published_at: str = None) -> str:
     """
     High-signal summary generator using DeepSeek.
     Includes published date explicitly to help downstream automated analysis.
@@ -89,14 +89,14 @@ Return ONLY the clean, refined summary — nothing else.
 # ------------------------------------------------------------------------------------
 
 
-async def generate_summary(text: str, published_at: str = None) -> str:
+def generate_summary(text: str, published_at: str = None) -> str:
     """
     Public interface for generating high-quality summaries.
     Includes published_at to help LLM produce time-aware summaries.
     """
     try:
         cleaned = text.strip().replace("\n", " ")
-        return await summarize_with_deepseek(cleaned, published_at=published_at)
+        return summarize_with_deepseek(cleaned, published_at=published_at)
     except Exception:
         # Fallback to a truncated preview
         return text[:400].strip()

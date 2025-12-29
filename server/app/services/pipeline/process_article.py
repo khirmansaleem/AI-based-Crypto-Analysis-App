@@ -1,3 +1,4 @@
+import asyncio
 from asyncio.log import logger
 from app.models.news.news_article import NewsArticle
 from app.models.news.ai_analysis import AiAnalysis
@@ -8,68 +9,56 @@ from app.database.database import SessionLocal
 
 
 async def process_article(article_id: int):
-    # ---- STEP 0: Load article (short-lived session)
-    with SessionLocal() as db:
-        article = db.query(NewsArticle).filter_by(id=article_id).first()
-        if not article:
-            return
 
-        article_data = {
-            "id": article.id,
-            "title": article.title,
-            "summary": article.summary,
-            "content": article.content,
-            "category": article.category,
-        }
+    # STEP 0 — load article (OFF event loop)
+    def load_article():
+        with SessionLocal() as db:
+            article = db.query(NewsArticle).filter_by(id=article_id).first()
+            if not article:
+                return None
 
-    # ---- STEP 1: Semantic search (READ-ONLY session)
-    with SessionLocal() as db:
-        references = await search_similar_articles(
-            db,
-            query_text=article_data["content"],
-            category=article_data["category"],
-            current_id=article_data["id"],
-        )
+            return {
+                "id": article.id,
+                "title": article.title,
+                "summary": article.summary,
+                "content": article.content,
+                "category": article.category,
+            }
 
-    # ---- STEP 2: DeepSeek (NO DB session at all)
-    output = await analyze_article_with_deepseek(
-        article={
+    article_data = await asyncio.to_thread(load_article)
+    if not article_data:
+        return
+
+    # STEP 1 — semantic search (OFF event loop)
+    references = await asyncio.to_thread(
+        search_similar_articles,  # ❌ no lambda, no async
+        article_data["content"],
+        article_data["category"],
+        article_data["id"],
+    )
+
+    # STEP 2 — DeepSeek analysis (OFF event loop)
+    output = await asyncio.to_thread(
+        analyze_article_with_deepseek,  # ✅ already sync
+        {
             "title": article_data["title"],
             "summary": article_data["summary"],
         },
-        similar_articles=references,
+        references,
     )
 
-    logger.warning(f"[DeepSeek OUTPUT] -> {output}")
-    logger.warning(f"[DeepSeek TYPE] -> {type(output)}")
-
-    # ---- STEP 3: Persist analysis + mark analyzed (WRITE session)
-    with SessionLocal() as db:
-        try:
-            prediction_text = (
-                output.get("prediction", "")
-                if isinstance(output, dict)
-                else str(output)
-            )
-
+    # STEP 3 — persist analysis (OFF event loop)
+    def persist():
+        with SessionLocal() as db:
             analysis = AiAnalysis(
                 article_id=article_data["id"],
-                prediction=prediction_text,
+                prediction=str(output),
                 created_at=datetime.datetime.utcnow(),
             )
-
             db.add(analysis)
 
             article = db.query(NewsArticle).get(article_data["id"])
             article.is_analyzed = True
-
             db.commit()
 
-            logger.info(f"✅ Article ID={article_data['id']} marked as analyzed")
-
-        except Exception as e:
-            db.rollback()
-            logger.error(
-                f"❌ Failed processing article ID={article_data['id']}: {e}",
-                exc_info=True,
-            )
+    await asyncio.to_thread(persist)

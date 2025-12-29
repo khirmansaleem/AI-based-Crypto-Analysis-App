@@ -85,9 +85,9 @@ def _run_vector_query(
 # ---------------------------------------------------------
 
 
-async def _row_to_article_summary(row):
+def _row_to_article_summary(row):
     """Convert a DB row into a clean summary reference object."""
-    content_summary = await generate_summary(
+    content_summary = generate_summary(
         row["content"],
         published_at=row["published_at"],
     )
@@ -108,7 +108,7 @@ async def _row_to_article_summary(row):
 # ---------------------------------------------------------
 
 
-async def search_similar_articles(
+def search_similar_articles(
     db: Session,
     query_text: str,
     category: str,
@@ -138,16 +138,16 @@ async def search_similar_articles(
     # 5. Primary results
     if primary:
         top_rows = primary[:MAX_CONTEXT_RESULTS]
-        return [await _row_to_article_summary(r) for r in top_rows]
+        return [_row_to_article_summary(r) for r in top_rows]
 
     # 6. Fallback results
     if fallback:
         top_rows = fallback[:MAX_CONTEXT_RESULTS]
-        return [await _row_to_article_summary(r) for r in top_rows]
+        return [_row_to_article_summary(r) for r in top_rows]
 
     # 7. Final fallback
     top_rows = initial_rows[:MAX_CONTEXT_RESULTS]
-    return [await _row_to_article_summary(r) for r in top_rows]
+    return [_row_to_article_summary(r) for r in top_rows]
 
 
 # ---------------------------------------------------------
