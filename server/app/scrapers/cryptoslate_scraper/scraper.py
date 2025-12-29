@@ -18,7 +18,7 @@ CATEGORIES = {
     "stablecoins": 2,
 }
 
-MAX_ARTICLE_AGE_DAYS = 7
+MAX_ARTICLE_AGE_DAYS = 14
 
 BASE_URL = "https://cryptoslate.com/"
 
