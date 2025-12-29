@@ -13,13 +13,23 @@ from app.services.news.paths import UNPROCESSED_DIR
 # -----------------------------
 # Tier S Categories + Limits
 # -----------------------------
+# CATEGORIES = {
+#    "regulation": 3,
+#    "etf": 2,
+#    "macro": 3,
+#    "exchanges": 3,
+#    "investments": 2,
+#    "stablecoins": 2,
+# }
+
+
 CATEGORIES = {
-    "regulation": 3,
-    "etf": 2,
-    "macro": 3,
-    "exchanges": 3,
-    "investments": 2,
-    "stablecoins": 2,
+    "regulation": 1,
+    "etf": 1,
+    "macro": 1,
+    "exchanges": 0,
+    "investments": 0,
+    "stablecoins": 0,
 }
 
 BASE_URL = "https://cryptoslate.com/"

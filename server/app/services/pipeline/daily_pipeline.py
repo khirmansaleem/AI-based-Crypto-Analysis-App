@@ -4,7 +4,7 @@ import logging
 from app.models.news.news_article import NewsArticle
 from app.services.pipeline.process_article import process_article
 
-# from app.scrapers.cryptoslate_scraper.scraper import scrape_latest_news
+from app.scrapers.cryptoslate_scraper.scraper import scrape_latest_news
 from app.services.ai.backfill_embedding_core import backfill_embeddings_core
 from app.services.news.importer import import_scraped_articles_core
 
@@ -17,7 +17,7 @@ async def process_daily_news():
 
     try:
         logger.info("🕸 Starting scraper...")
-        # scrape_latest_news()  # sync, fast enough to stay here
+        scrape_latest_news()  # sync, fast enough to stay here
     except Exception as e:
         logger.error(f"❌ Scraper failed: {e}")
 
