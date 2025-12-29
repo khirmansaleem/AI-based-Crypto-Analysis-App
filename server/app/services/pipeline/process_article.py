@@ -31,7 +31,7 @@ async def process_article(article_id: int):
 
     # STEP 1 — semantic search (OFF event loop)
     references = await asyncio.to_thread(
-        search_similar_articles,  # ❌ no lambda, no async
+        search_similar_articles,
         article_data["content"],
         article_data["category"],
         article_data["id"],
@@ -39,7 +39,7 @@ async def process_article(article_id: int):
 
     # STEP 2 — DeepSeek analysis (OFF event loop)
     output = await asyncio.to_thread(
-        analyze_article_with_deepseek,  # ✅ already sync
+        analyze_article_with_deepseek,
         {
             "title": article_data["title"],
             "summary": article_data["summary"],
@@ -50,15 +50,23 @@ async def process_article(article_id: int):
     # STEP 3 — persist analysis (OFF event loop)
     def persist():
         with SessionLocal() as db:
+            # ✅ FIX: extract clean prediction text only
+            prediction_text = (
+                output.get("prediction", "")
+                if isinstance(output, dict)
+                else str(output)
+            )
+
             analysis = AiAnalysis(
                 article_id=article_data["id"],
-                prediction=str(output),
+                prediction=prediction_text,
                 created_at=datetime.datetime.utcnow(),
             )
             db.add(analysis)
 
             article = db.query(NewsArticle).get(article_data["id"])
             article.is_analyzed = True
+
             db.commit()
 
     await asyncio.to_thread(persist)
