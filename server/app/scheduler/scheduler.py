@@ -2,7 +2,8 @@ import asyncio
 import logging
 
 from apscheduler.schedulers.blocking import BlockingScheduler
-from apscheduler.triggers.cron import CronTrigger
+
+# from apscheduler.triggers.cron import CronTrigger
 
 from app.services.pipeline.daily_pipeline import process_daily_news
 
