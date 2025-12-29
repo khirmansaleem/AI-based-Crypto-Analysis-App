@@ -6,31 +6,19 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup, Tag
 from dateutil import parser as dateparser
-
+from datetime import datetime, timezone, timedelta
 from app.services.news.paths import UNPROCESSED_DIR
-
-
-# -----------------------------
-# Tier S Categories + Limits
-# -----------------------------
-# CATEGORIES = {
-#    "regulation": 3,
-#    "etf": 2,
-#    "macro": 3,
-#    "exchanges": 3,
-#    "investments": 2,
-#    "stablecoins": 2,
-# }
-
 
 CATEGORIES = {
     "regulation": 3,
     "etf": 2,
-    "macro": 1,
+    "macro": 3,
     "exchanges": 3,
     "investments": 2,
     "stablecoins": 2,
 }
+
+MAX_ARTICLE_AGE_DAYS = 7
 
 BASE_URL = "https://cryptoslate.com/"
 
@@ -44,20 +32,33 @@ HEADERS = {
     "Referer": "https://www.google.com/",
 }
 
-
 OUTPUT_FOLDER = UNPROCESSED_DIR
-
-# Create directories if missing
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
-
 
 session = requests.Session()
 session.headers.update(HEADERS)
 
-
 # -----------------------------
 # Helpers
 # -----------------------------
+from datetime import datetime, timezone, timedelta
+
+
+def is_within_days(published_at: str, max_days: int) -> bool:
+    try:
+        published_dt = dateparser.parse(published_at)
+        if not published_dt:
+            return False
+
+        if published_dt.tzinfo is None:
+            published_dt = published_dt.replace(tzinfo=timezone.utc)
+
+        now = datetime.now(timezone.utc)
+        return (now - published_dt) <= timedelta(days=max_days)
+    except Exception:
+        return False
+
+
 def sanitize_filename(name: str) -> str:
     name = re.sub(r"[^a-zA-Z0-9_\-\. ]+", "", name)
     return name.strip().replace(" ", "_")[:120]
@@ -98,8 +99,7 @@ def safe_get(url: str, max_retries: int = 3, timeout: int = 15):
             if resp.status_code == 200:
                 return resp
 
-        sleep_sec = (2**attempt) + random.uniform(0.0, 1.0)
-        time.sleep(sleep_sec)
+        time.sleep((2**attempt) + random.uniform(0.0, 1.0))
 
     return None
 
@@ -107,48 +107,31 @@ def safe_get(url: str, max_retries: int = 3, timeout: int = 15):
 # -----------------------------
 # Published date extractor
 # -----------------------------
-
-
 def fetch_published_date(soup: BeautifulSoup) -> str:
-    """
-    Extracts the published date from a CryptoSlate article page.
-    Returns ISO-8601 timestamp like '2025-12-08T18:45:00+00:00'
-    """
-
-    # 1. Preferred: <time datetime="...">
     time_tag = soup.find("time", attrs={"datetime": True})
     if time_tag and time_tag.get("datetime"):
         return time_tag["datetime"].strip()
 
-    # 2. Meta tag fallback (rare but valid)
     meta_time = soup.find("meta", {"property": "article:published_time"})
     if meta_time and meta_time.get("content"):
         return meta_time["content"].strip()
 
-    # 3. Fallback: <div class="post-date"> Dec. 8, 2025 at 6:45 pm UTC
     post_date_div = soup.find("div", class_="post-date")
     if post_date_div:
         try:
-            # Extract date + time together
             raw_text = post_date_div.get_text(" ", strip=True)
-
-            # Example: "Dec. 8, 2025 at 6:45 pm UTC"
             dt = dateparser.parse(raw_text, fuzzy=True)
             return dt.isoformat()
-
         except Exception:
             pass
 
-    return ""  # No date found
+    return ""
 
 
 # -----------------------------
 # Full article fetch
 # -----------------------------
 def fetch_full_article(url: str) -> tuple[str, str]:
-    """
-    Returns: (content, published_at)
-    """
     time.sleep(random.uniform(1.5, 3.5))
 
     resp = safe_get(url)
@@ -157,7 +140,6 @@ def fetch_full_article(url: str) -> tuple[str, str]:
 
     soup = BeautifulSoup(resp.text, "html.parser")
 
-    # --- extract content ---
     selectors = [
         "div.single__content-wrap p",
         "div.single__content p",
@@ -172,19 +154,15 @@ def fetch_full_article(url: str) -> tuple[str, str]:
             content = "\n".join(p.get_text(strip=True) for p in paragraphs)
             break
 
-    # --- extract published date ---
     published_at = fetch_published_date(soup)
-
     return content, published_at
 
 
 # -----------------------------
-# Category listing scraper (SMART VERSION)
-# Picks the most recent articles based on published date
+# Category listing scraper
 # -----------------------------
 def scrape_listing(category: str, limit: int):
     url = BASE_URL + category + "/"
-
     time.sleep(random.uniform(2.0, 4.0))
 
     resp = safe_get(url)
@@ -192,8 +170,8 @@ def scrape_listing(category: str, limit: int):
         return []
 
     soup = BeautifulSoup(resp.text, "html.parser")
-
     heading_text = get_heading_text(category)
+
     heading_tag = soup.find(
         lambda tag: isinstance(tag, Tag)
         and tag.name in ("h1", "h2")
@@ -206,8 +184,6 @@ def scrape_listing(category: str, limit: int):
     articles = []
     seen_urls = set()
 
-    # Instead of stopping early, collect MANY links
-    # (The listing page may have mixed old/new items)
     for link in heading_tag.find_all_next("a", href=True):
         title = link.get_text(strip=True)
         if not looks_like_title(title):
@@ -217,15 +193,11 @@ def scrape_listing(category: str, limit: int):
         if href.startswith("/"):
             href = "https://cryptoslate.com" + href
 
-        if "cryptoslate.com" not in href:
-            continue
-
-        if href in seen_urls:
+        if "cryptoslate.com" not in href or href in seen_urls:
             continue
 
         seen_urls.add(href)
 
-        # Fetch published date using lightweight request
         preview_resp = safe_get(href)
         if preview_resp is None:
             continue
@@ -233,8 +205,11 @@ def scrape_listing(category: str, limit: int):
         preview_soup = BeautifulSoup(preview_resp.text, "html.parser")
         published_at = fetch_published_date(preview_soup)
 
-        # Ignore items without dates
         if not published_at:
+            continue
+
+        # ✅ NEW: ignore old articles
+        if not is_within_days(published_at, MAX_ARTICLE_AGE_DAYS):
             continue
 
         articles.append(
@@ -246,23 +221,14 @@ def scrape_listing(category: str, limit: int):
             }
         )
 
-        # Still keep going — we want enough candidates to sort
-
-    # Sort newest → oldest
     articles.sort(key=lambda x: x["published_at"], reverse=True)
-
-    # Return only the top N most recent
     return articles[:limit]
 
 
 # -----------------------------
-# MAIN SCRAPER FUNCTION (for pipeline)
+# MAIN SCRAPER FUNCTION
 # -----------------------------
 def scrape_latest_news() -> int:
-    """
-    Scrapes each category, selects MOST RECENT articles based on published date,
-    saves them into TXT files, and returns the total count.
-    """
     total_saved = 0
 
     for category, limit in CATEGORIES.items():
