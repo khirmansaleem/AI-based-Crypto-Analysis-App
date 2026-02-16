@@ -4,7 +4,7 @@ import time
 import random
 from datetime import datetime
 import requests
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup
 from dateutil import parser as dateparser
 from datetime import datetime, timezone, timedelta
 from app.services.news.paths import UNPROCESSED_DIR
@@ -161,68 +161,49 @@ def fetch_full_article(url: str) -> tuple[str, str]:
 # -----------------------------
 # Category listing scraper
 # -----------------------------
-def scrape_listing(category: str, limit: int):
-    url = BASE_URL + category + "/"
-    time.sleep(random.uniform(2.0, 4.0))
-
+def scrape_top_news(limit: int = 15):
+    url = "https://cryptoslate.com/top-news/"
     resp = safe_get(url)
     if resp is None:
         return []
 
     soup = BeautifulSoup(resp.text, "html.parser")
-    heading_text = get_heading_text(category)
-
-    heading_tag = soup.find(
-        lambda tag: isinstance(tag, Tag)
-        and tag.name in ("h1", "h2")
-        and heading_text in tag.get_text(strip=True)
-    )
-
-    if not heading_tag:
-        return []
 
     articles = []
-    seen_urls = set()
+    seen = set()
 
-    for link in heading_tag.find_all_next("a", href=True):
-        title = link.get_text(strip=True)
-        if not looks_like_title(title):
+    # Target 24h panel
+    panel = soup.find("section", id="top-news-panel-24h")
+    if not panel:
+        return []
+
+    for article in panel.select("article.top-news-article"):
+        link = article.find("a", class_="top-news-link", href=True)
+        if not link:
             continue
 
         href = link["href"]
-        if href.startswith("/"):
-            href = "https://cryptoslate.com" + href
-
-        if "cryptoslate.com" not in href or href in seen_urls:
+        if href in seen:
             continue
+        seen.add(href)
 
-        seen_urls.add(href)
-
-        preview_resp = safe_get(href)
-        if preview_resp is None:
-            continue
-
-        preview_soup = BeautifulSoup(preview_resp.text, "html.parser")
-        published_at = fetch_published_date(preview_soup)
-
-        if not published_at:
-            continue
-
-        # ✅ NEW: ignore old articles
-        if not is_within_days(published_at, MAX_ARTICLE_AGE_DAYS):
+        title = link.get("title") or link.get_text(strip=True)
+        if not title:
             continue
 
         articles.append(
             {
-                "category": category,
-                "title": title,
+                "category": "top-news",
+                "title": title.strip(),
                 "url": href,
-                "published_at": published_at,
+                "published_at": datetime.now(timezone.utc).isoformat(),
             }
         )
 
-    articles.sort(key=lambda x: x["published_at"], reverse=True)
-    return articles[:limit]
+        if len(articles) >= limit:
+            break
+
+    return articles
 
 
 # -----------------------------
@@ -231,28 +212,25 @@ def scrape_listing(category: str, limit: int):
 def scrape_latest_news() -> int:
     total_saved = 0
 
-    for category, limit in CATEGORIES.items():
-        articles = scrape_listing(category, limit)
+    articles = scrape_top_news(limit=15)
 
-        for art in articles:
-            content, published_at = fetch_full_article(art["url"])
+    for art in articles:
+        content, published_at = fetch_full_article(art["url"])
 
-            ts = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
-            filename = f"{category}__{sanitize_filename(art['title'])}__{ts}.txt"
-            path = os.path.join(OUTPUT_FOLDER, filename)
+        ts = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
+        filename = f"topnews__{sanitize_filename(art['title'])}__{ts}.txt"
+        path = os.path.join(OUTPUT_FOLDER, filename)
 
-            with open(path, "w", encoding="utf-8") as f:
-                f.write(f"Category: {art['category']}\n")
-                f.write(f"Title: {art['title']}\n")
-                f.write(f"URL: {art['url']}\n")
-                f.write(f"PublishedAt: {published_at}\n")
-                f.write("\n" + "=" * 80 + "\n\n")
-                f.write(content)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(f"Category: Top News\n")
+            f.write(f"Title: {art['title']}\n")
+            f.write(f"URL: {art['url']}\n")
+            f.write(f"PublishedAt: {published_at}\n")
+            f.write("\n" + "=" * 80 + "\n\n")
+            f.write(content)
 
-            total_saved += 1
-            time.sleep(random.uniform(1.0, 2.5))
-
-        time.sleep(random.uniform(2.0, 4.0))
+        total_saved += 1
+        time.sleep(random.uniform(1.0, 2.0))
 
     return total_saved
 
