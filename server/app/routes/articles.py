@@ -16,6 +16,6 @@ def get_db():
 
 
 @router.post("/import-scraped")
-def import_scraped_articles(db: Session = Depends(get_db)):
-    response = import_scraped_articles_core(db)
+def import_scraped_articles():
+    response = import_scraped_articles_core()
     return {"total_processed": len(response), "details": response}
