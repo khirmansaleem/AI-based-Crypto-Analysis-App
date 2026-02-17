@@ -32,7 +32,8 @@ def start_scheduler():
     # =====================================================
     # ✅ DAILY CRON — 01:20 AM PKT (20:20 UTC)
     # =====================================================
-    trigger = CronTrigger(hour=22, minute=25)
+    # trigger = CronTrigger(hour=22, minute=25)
+    trigger = CronTrigger(hour=0, minute=20)
 
     scheduler.add_job(
         _run_daily_news_pipeline,
