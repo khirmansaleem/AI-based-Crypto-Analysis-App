@@ -9,14 +9,6 @@ from dateutil import parser as dateparser
 from datetime import datetime, timezone, timedelta
 from app.services.news.paths import UNPROCESSED_DIR
 
-CATEGORIES = {
-    "regulation": 3,
-    "etf": 2,
-    "macro": 3,
-    "exchanges": 3,
-    "investments": 2,
-    "stablecoins": 2,
-}
 
 MAX_ARTICLE_AGE_DAYS = 14
 
